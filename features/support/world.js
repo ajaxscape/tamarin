@@ -2,18 +2,21 @@
 
 var fs = require('fs'),
     webdriver = require('selenium-webdriver'),
+    chrome = require('selenium-webdriver/chrome'),
+    path = require('chromedriver').path,
     _ = require('lodash'),
     host = 'http://localhost:3000',
     routes = require('../routes.json'),
+    basePageObject = require('../page_objects/_base'),
     defaultTimeout = 2000;
 
-process.env.PATH += ';' + require('path').dirname(require('chromedriver').path);
+var service = new chrome.ServiceBuilder(path).build();
+    chrome.setDefaultService(service);
 
-var driver = (function () {
-    return new webdriver.Builder().
-    withCapabilities(webdriver.Capabilities.chrome()).
+var driver = new webdriver.Builder().
+    //withCapabilities(webdriver.Capabilities.chrome()).
+    withCapabilities(webdriver.Capabilities.firefox()).
     build();
-})();
 
 var getDriver = function () {
     return driver;
@@ -118,8 +121,6 @@ World.prototype.findElement = function (selector, success, failure) {
         }, failure);
     }
 };
-
-var basePageObject = require('../page_objects/_base')(World);
 
 function buildPageObject(config) {
     config = _.defaultsDeep(basePageObject, config);

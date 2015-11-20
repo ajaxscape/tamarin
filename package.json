@@ -15,12 +15,13 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "chromedriver": "^2.20.0",
-    "cucumber": "^0.9.1",
+    "cucumber": "^0.5.2",
     "gulp": "^3.9.0",
     "gulp-jshint": "^2.0.0",
     "gulp-shell": "^0.5.1",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.1.0",
+    "lodash": "^3.10.1",
     "sanitize-filename": "^1.5.3",
     "selenium-webdriver": "^2.48.2"
   }
