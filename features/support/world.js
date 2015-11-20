@@ -1,11 +1,10 @@
 'use strict';
 
 var fs = require('fs'),
-    yaml = require('js-yaml'),
     webdriver = require('selenium-webdriver'),
     _ = require('lodash'),
     host = 'http://localhost:3000',
-    routes = yaml.safeLoad(fs.readFileSync('./client/routes.yml', 'utf8')),
+    routes = require('../routes.json'),
     defaultTimeout = 2000;
 
 process.env.PATH += ';' + require('path').dirname(require('chromedriver').path);
