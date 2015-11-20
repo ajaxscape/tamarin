@@ -14,8 +14,8 @@ var service = new chrome.ServiceBuilder(path).build();
     chrome.setDefaultService(service);
 
 var driver = new webdriver.Builder().
-    //withCapabilities(webdriver.Capabilities.chrome()).
-    withCapabilities(webdriver.Capabilities.firefox()).
+    withCapabilities(webdriver.Capabilities.chrome()).
+    //withCapabilities(webdriver.Capabilities.firefox()).
     build();
 
 var getDriver = function () {

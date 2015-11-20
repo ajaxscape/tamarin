@@ -1,5 +1,9 @@
 [
   {
+    "component": "signOut",
+    "path": "/sign-out"
+  },
+  {
     "component": "submissionList",
     "path": "/"
   },
