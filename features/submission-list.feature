@@ -4,8 +4,8 @@ Feature: Submission-list feature
   I would like to visit the submission list page
 
   Background:
-    Given I am signed out
+    Given I am signed in
 
   Scenario: Land on home page as a visitor
-    Given I visit the submission list page
-    Then I expect the page title to be Sign-in
+    When I visit the submission list page
+    Then I click submit new paper

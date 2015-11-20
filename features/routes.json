@@ -4,6 +4,10 @@
     "path": "/sign-out"
   },
   {
+    "component": "signIn",
+    "path": "/sign-in"
+  },
+  {
     "component": "submissionList",
     "path": "/"
   },

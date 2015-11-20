@@ -2,6 +2,9 @@
 
 require('chai').should();
 
+var email = 'qa+rdm+dataset+creation@mendeley.com';
+var password = '123123';
+
 module.exports = StepDefinitionsWrapper;
 
 function StepDefinitionsWrapper() {
@@ -11,20 +14,18 @@ function StepDefinitionsWrapper() {
     this.When(/^I am signed out$/,
         function (next) {
             this.visit('signOut')
-                .then(() => this.getPageObject()
-                    .then((pageObject) => pageObject.expectToBeLoggedOut(next))
-                );
+                .then(next);
         }
     );
 
-    this.When(/^I am signed in as (.*) with password (.*)/,
-        function (username, password, next) {
-            this.visit('signIn')
+    this.When(/^I am signed in$/,
+        function (next) {
+            this.visit('signOut') // will redirect to sign-in
                 .then(() => this.getPageObject()
                     .then((pageObject) => {
-                        pageObject.get('username').sendKeys(username);
+                        pageObject.get('username').sendKeys(email);
                         pageObject.get('password').sendKeys(password);
-                        pageObject.get('submit').click().then(() => pageObject.expectToBeLoggedIn(next));
+                        pageObject.get('submit').click().then(next);
                     }));
         }
     );
@@ -93,7 +94,7 @@ function StepDefinitionsWrapper() {
         }
     );
 
-    this.When(/^I click the (.*)$/,
+    this.When(/^I click (.*)$/,
         function (link, next) {
             this.getPageObject()
                 .then((pageObject) => pageObject.get(link).click()

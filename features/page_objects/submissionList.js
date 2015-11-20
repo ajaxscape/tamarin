@@ -1,6 +1,5 @@
 'use strict';
 
-module.exports = function(world){
-    return {
-    };
+module.exports = {
+    submitNewPaper: '.submit-new-paper'
 };

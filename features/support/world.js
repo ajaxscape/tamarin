@@ -88,7 +88,7 @@ World.prototype.visit = function (page, params) {
         });
         path = host + parts.join('/');
     }
-    this.pageObject = require('../page_objects/' + route.component).call(this);
+    this.pageObject = require('../page_objects/' + route.component);
     return driver.get(path);
 };
 
@@ -101,7 +101,7 @@ World.prototype.getPageObject = function () {
     return new Promise(function (resolve, reject) {
         world.driver.getCurrentUrl().then(function (url) {
             var route = world.getRoute(url.substr(host.length), 'path');
-            var pageObject = buildPageObject.call(world, require('../page_objects/' + route.component)(world));
+            var pageObject = buildPageObject.call(world, require('../page_objects/' + route.component));
             if (pageObject) {
                 resolve(pageObject);
             } else {
