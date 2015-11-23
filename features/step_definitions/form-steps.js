@@ -1,11 +1,11 @@
 'use strict';
 
 require('chai').should();
-var helpers = require('../support/helpers');
+var helpers = require('.././helpers');
 
 module.exports = function () {
 
-    this.World = require('../support/world.js').World; // overwrite default World constructor
+    this.World = require('.././world.js').World; // overwrite default World constructor
 
     this.When(/^I am signed out$/,
         function (next) {
