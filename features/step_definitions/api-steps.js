@@ -2,10 +2,35 @@
 
 require('chai').should();
 
-var email = 'qa+rdm+dataset+creation@mendeley.com';
-var password = '123123';
+var helpers = require('../support/helpers');
+var currentUser;
 
-module.exports = function() {
+module.exports = function () {
 
+    this.Given(/^I am a new user$/,
+        function (next) {
+            helpers.createUser(function (error, result) {
+                if (error) {
+                    throw new Error(error);
+                } else {
+                    var xxx = result;
+                    next();
+                }
+            });
+        }
+    );
+
+    this.Given(/^I have a submission$/,
+        function (next) {
+            helpers.createSubmission(function (error, result) {
+                if (error) {
+                    throw new Error(error);
+                } else {
+                    var xxx = result;
+                    next();
+                }
+            });
+        }
+    );
 
 };

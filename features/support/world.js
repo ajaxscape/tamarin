@@ -5,9 +5,8 @@ var fs = require('fs'),
     chrome = require('selenium-webdriver/chrome'),
     path = require('chromedriver').path,
     _ = require('lodash'),
-    host = 'http://live-weblet-asa.mendeley.com',
-    //host = 'http://localhost:3000',
     routes = require('../routes.json'),
+    host = require('../support/helpers').getHost(),
     basePageObject = require('../page_objects/_base'),
     defaultTimeout = 2000;
 

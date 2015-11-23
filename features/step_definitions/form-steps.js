@@ -1,9 +1,7 @@
 'use strict';
 
 require('chai').should();
-
-var email = 'qa+rdm+dataset+creation@mendeley.com';
-var password = '123123';
+var helpers = require('../support/helpers');
 
 module.exports = function () {
 
@@ -21,10 +19,15 @@ module.exports = function () {
             this.visit('signOut') // will redirect to sign-in
                 .then(() => this.getPageObject()
                     .then((pageObject) => {
-                        pageObject.get('username').sendKeys(email);
-                        pageObject.get('password').sendKeys(password);
+                        var user = helpers.getCurrentUser();
+                        pageObject.get('username').sendKeys(user.email);
+                        pageObject.get('password').sendKeys(user.password);
                         pageObject.get('submit').click().then(next);
-                    }));
+                    })
+                    .catch(() => {
+                        throw new Error('Route is not defined');
+                    })
+                );
         }
     );
 
@@ -37,7 +40,10 @@ module.exports = function () {
 
     this.Then(/^I should eventually be on the (.*) page$/,
         function (page, next) {
-            var route = this.getRoute(page, 'path');
+            var route = this.getRoute(page);
+            if (!route) {
+                throw new Error('Route is not defined for "' + page + '" page');
+            }
             this.getPageObject()
                 .then((pageObject) => {
                     pageObject.route.should.equal(route);

@@ -1,0 +1,9 @@
+  host: http://localhost:3000
+  platform: https://test.com
+  client_id: 999
+  client_secret: xxxxxxxx
+  email: fred@mendeley.com
+  password: xxxxxx
+  discipline: Design
+  institution_id: e7f92d39-722a-5508-a932-f4a68207858c
+  journal_id:   55be0c1b-deee-4b8d-a4a4-63edd48e512a
