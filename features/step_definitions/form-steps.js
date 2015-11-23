@@ -5,9 +5,7 @@ require('chai').should();
 var email = 'qa+rdm+dataset+creation@mendeley.com';
 var password = '123123';
 
-module.exports = StepDefinitionsWrapper;
-
-function StepDefinitionsWrapper() {
+module.exports = function () {
 
     this.World = require('../support/world.js').World; // overwrite default World constructor
 
@@ -37,17 +35,14 @@ function StepDefinitionsWrapper() {
         }
     );
 
-    this.When(/^I visit the (.*) page for (.*)$/,
-        function (page, link, next) {
-            this.visit(page, link)
-                .then(next);
-        }
-    );
-
-    this.Then(/^I expect the page title to be (.*)$/,
-        function (title, next) {
+    this.Then(/^I should eventually be on the (.*) page$/,
+        function (page, next) {
+            var route = this.getRoute(page, 'path');
             this.getPageObject()
-                .then((pageObject) => pageObject.expectPageTitle(title, next));
+                .then((pageObject) => {
+                    pageObject.route.should.equal(route);
+                    next();
+                });
         }
     );
 
@@ -62,21 +57,6 @@ function StepDefinitionsWrapper() {
         function (id, next) {
             this.getPageObject()
                 .then((pageObject) => pageObject.expectPageToContain(id, next));
-        }
-    );
-
-    this.When(/^I click on the (.*) menu link$/,
-        function (page, next) {
-            this.getPageObject()
-                .then((pageObject) => pageObject.clickPageLink(page)
-                    .then(() => setTimeout(next, 600))); // timeout to allow any animation
-        }
-    );
-
-    this.Then(/^I expect the (.*) menu link to exist$/,
-        function (page, next) {
-            this.getPageObject()
-                .then((pageObject) => pageObject.expectPageToContainPageLink(page, next));
         }
     );
 
@@ -101,33 +81,4 @@ function StepDefinitionsWrapper() {
                     .then(() => setTimeout(next, 450))); // timeout to allow any animation
         });
 
-    this.Then(/^I expect to be logged in$/,
-        function (next) {
-            this.getPageObject()
-                .then((pageObject) => pageObject.expectToBeLoggedIn(next));
-        }
-    );
-
-    this.Then(/^I expect to be logged out$/,
-        function (next) {
-            this.getPageObject()
-                .then((pageObject) => pageObject.expectToBeLoggedOut(next));
-        }
-    );
-
-    this.When(/^I add the gallery (.*)$/,
-        function (gallery, next) {
-            this.visit('galleries')
-                .then(() => this.getPageObject()
-                    .then((pageObject) => {
-                        pageObject.get('title').sendKeys(gallery);
-                        pageObject.get('description').sendKeys('anything');
-                        pageObject.get('submit').click().then(
-                            () => next(),
-                            () => next());
-                    })
-                );
-        }
-    );
-
-}
+};

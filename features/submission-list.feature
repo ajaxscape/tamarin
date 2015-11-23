@@ -5,7 +5,9 @@ Feature: Submission-list feature
 
   Background:
     Given I am signed in
+#    Then I should eventually be on the new submission list page
 
   Scenario: Land on home page as a visitor
     When I visit the submission list page
-    Then I click submit new paper
+    And I click submit new paper
+    Then I should eventually be on the new submission page

@@ -5,7 +5,8 @@ var fs = require('fs'),
     chrome = require('selenium-webdriver/chrome'),
     path = require('chromedriver').path,
     _ = require('lodash'),
-    host = 'http://localhost:3000',
+    host = 'http://live-weblet-asa.mendeley.com',
+    //host = 'http://localhost:3000',
     routes = require('../routes.json'),
     basePageObject = require('../page_objects/_base'),
     defaultTimeout = 2000;
@@ -103,6 +104,7 @@ World.prototype.getPageObject = function () {
             var route = world.getRoute(url.substr(host.length), 'path');
             var pageObject = buildPageObject.call(world, require('../page_objects/' + route.component));
             if (pageObject) {
+                pageObject.route = route;
                 resolve(pageObject);
             } else {
                 reject(new Error('Failed to build page object for ' + url));

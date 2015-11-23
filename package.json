@@ -23,6 +23,7 @@
     "jshint-stylish": "^2.1.0",
     "lodash": "^3.10.1",
     "sanitize-filename": "^1.5.3",
-    "selenium-webdriver": "^2.48.2"
+    "selenium-webdriver": "^2.48.2",
+    "superagent": "^1.4.0"
   }
 }
