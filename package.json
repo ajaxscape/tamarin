@@ -2,7 +2,7 @@
   "name": "@bsurgison/cucumber-partner",
   "version": "0.0.1",
   "description": "Helper Page objects for cucumber.js",
-  "main": "build.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
