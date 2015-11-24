@@ -1,5 +1,5 @@
 {
-  "name": "cucumber-partner",
+  "name": "@bsurgison/cucumber-partner",
   "version": "0.0.1",
   "description": "Helper Page objects for cucumber.js",
   "main": "build.js",
