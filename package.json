@@ -1,6 +1,6 @@
 {
   "name": "@bsurgison/cucumber-partner",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Helper Page objects for cucumber.js",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "bluebird": "^3.0.5",
     "chai": "^3.4.1",
     "chromedriver": "^2.20.0",
-    "cucumber": "^0.5.2",
+    "cucumber": "^0.9.2",
     "faker": "^3.0.1",
     "js-yaml": "^3.4.5",
     "lodash": "^3.10.1",
