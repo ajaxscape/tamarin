@@ -1,6 +1,6 @@
 {
   "name": "@bsurgison/cucumber-partner",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Helper Page objects for cucumber.js",
   "main": "index.js",
   "scripts": {
