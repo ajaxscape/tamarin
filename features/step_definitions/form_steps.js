@@ -1,8 +1,10 @@
 'use strict';
 
 require('chai').should();
-var cucumber_partner = require('./lib/world');
-var helpers = require('../support/helpers');
+var cucumber_partner = require('../../lib/world');
+
+cucumber_partner.setConfig({host: 'http://localhost:3021'});
+cucumber_partner.setRoutes(require('../routes'));
 
 module.exports = function () {
 
