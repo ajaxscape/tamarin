@@ -4,7 +4,6 @@
   "description": "Helper Page objects for cucumber.js",
   "main": "index.js",
   "scripts": {
-    "start": "node server/app.js",
     "postinstall": "bower install"
   },
   "repository": {
@@ -22,6 +21,7 @@
   },
   "devDependencies": {
     "bower": "^1.7.0",
+    "chai": "^3.4.1",
     "express": "^4.13.3"
   }
 }

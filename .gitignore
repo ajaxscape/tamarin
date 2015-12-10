@@ -2,6 +2,7 @@
 coverage
 
 # Dependency directory
+bower_components
 node_modules
 screenshots
 npm-debug.log
