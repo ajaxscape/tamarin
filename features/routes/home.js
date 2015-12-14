@@ -1,5 +1,8 @@
 'use strict';
 
 module.exports = {
-    path: '/'
+    path: '/',
+    pageObject: {
+        widgetsLink: '#widgets-link'
+    }
 };

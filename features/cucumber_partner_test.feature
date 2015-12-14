@@ -8,4 +8,4 @@ Feature: Test cucumber-partner
     When I visit the home page
     Then I should eventually be on the home page
     When I click the widgets link
-    Then I should eventually be on the widgits page
+    Then I should eventually be on the widgets page

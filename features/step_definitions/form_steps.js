@@ -34,7 +34,7 @@ module.exports = function () {
 
     this.When(/^I click the (.*)$/,
         function (id, next) {
-            this.untilVisible(id)
+            this.find(id)
                 .then((el) => el.click()
                     .then(next));
         }
