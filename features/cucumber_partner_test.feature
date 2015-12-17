@@ -9,3 +9,5 @@ Feature: Test cucumber-partner
     Then I should eventually be on the home page
     When I click the widgets link
     Then I should eventually be on the widgets page
+    When I click the home link
+    Then I should eventually be on the home page
