@@ -28,15 +28,13 @@ module.exports = function () {
 
     this.Then(/^I should eventually be on the (.*) page$/,
         function (page, next) {
-            this.currentPage.expectPageToEventuallyBe(page, next);
+            this.expectPageToEventuallyBe(page, next);
         }
     );
 
     this.When(/^I click the (.*)$/,
         function (id, next) {
-            this.find(id)
-                .then((el) => el.click()
-                    .then(next));
+            this.click(id, next);
         }
     );
 
