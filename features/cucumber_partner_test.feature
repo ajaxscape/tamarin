@@ -13,7 +13,11 @@ Feature: Test cucumber-partner
     Then I should eventually be on the home page
     When I click the widget link
     Then I should eventually be on the widget page
+    When I type "Freddy" into the name input
+    Then the value of the name input should be "Freddy"
     When I click the home link
     Then I should eventually be on the home page
     When I click the bad link
-    Then The error message text should contain "not the page"
+    Then the error message text should contain "not the page"
+    When I click the widgets link
+    Then I should eventually be on the widgets page
