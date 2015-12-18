@@ -1,6 +1,8 @@
 'use strict';
 
 require('chai').should();
+
+var co = require('bluebird').coroutine;
 var cucumber_partner = require('../../lib/world');
 
 cucumber_partner.setConfig({host: 'http://localhost:3021'});
@@ -35,23 +37,16 @@ module.exports = function () {
 
     this.When(/^I click the (.*)$/,
         function (id, next) {
-            this.findE(id).then((el) => el.click().then(next));
+            this.find(id).then(this.click);
         }
     );
 
-    //this.When(/^I click the (.*)$/,
-    //    function (id, next) {
-    //        var el = this.find(id);
-    //        el.click().next();
-    //    }
-    //);
-    //
-    //this.Then(/^The (.*) text should contain "([^"]*)"$/,
-    //    function (id, text, next) {
-    //        var el = this.find(id);
-    //        el.text().should.contain(text);
-    //        next();
-    //    }
-    //);
+    this.Then(/^The (.*) text should contain "([^"]*)"$/,
+        function (id, text, next) {
+            var el = this.find(id);
+            el.text().should.contain(text);
+            next();
+        }
+    );
 
 };
