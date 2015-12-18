@@ -35,7 +35,7 @@ module.exports = function () {
 
     this.When(/^I click the (.*)$/,
         function (id, next) {
-            this.click(id, next);
+            this.findE(id).then((el) => el.click().then(next));
         }
     );
 
