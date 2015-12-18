@@ -39,4 +39,19 @@ module.exports = function () {
         }
     );
 
+    //this.When(/^I click the (.*)$/,
+    //    function (id, next) {
+    //        var el = this.find(id);
+    //        el.click().next();
+    //    }
+    //);
+    //
+    //this.Then(/^The (.*) text should contain "([^"]*)"$/,
+    //    function (id, text, next) {
+    //        var el = this.find(id);
+    //        el.text().should.contain(text);
+    //        next();
+    //    }
+    //);
+
 };

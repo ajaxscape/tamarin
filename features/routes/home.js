@@ -3,6 +3,8 @@
 module.exports = {
     path: '/',
     pageObject: {
-        widgetsLink: '#widgets-link'
+        widgetsLink: '#widgets-link',
+        widgetLink: '#widget-link',
+        badLink: '#bad-link'
     }
 };
