@@ -3,6 +3,7 @@
 module.exports = {
     path: '/widgets',
     pageObject: {
-        homeLink: '#home-link'
+        homeLink: '#home-link',
+        description: '#description'
     }
 };

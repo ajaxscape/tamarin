@@ -28,8 +28,9 @@ module.exports = function () {
 
     this.Then(/^I should eventually be on the (.*) page$/,
         function (page, next) {
-            this.waitForPage(page, 10000)
+            this.whenPageIs(page)
                 .then(next)
+                .catch(next)
         }
     );
 
@@ -66,6 +67,13 @@ module.exports = function () {
                     next()
                 })
                 .catch(next)
+        }
+    );
+
+    this.Then(/^the (.*) should eventually be "([^"]*)"$/,
+        function (id, text, next) {
+            this.whenTextMatches(id, text)
+                .then(next);
         }
     );
 
