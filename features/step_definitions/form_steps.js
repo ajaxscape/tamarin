@@ -1,6 +1,11 @@
 'use strict';
 
-var expect = require('chai').expect;
+var chai = require('chai');
+var chaiAsPromised = require('chai-as-promised');
+var expect = chai.expect;
+
+chai.use(chaiAsPromised);
+
 var cucumber_partner = require('../../lib/world');
 
 cucumber_partner.setConfig({host: 'http://localhost:3021'});
