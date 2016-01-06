@@ -15,7 +15,7 @@ module.exports = function () {
 
     this.World = cucumber_partner.World; // overwrite default World constructor
 
-    this.setDefaultTimeout(6000);
+    this.setDefaultTimeout(60000);
 
     this.When(/^I am using a desktop$/,
         function (next) {
