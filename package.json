@@ -18,7 +18,7 @@
     "co": "^4.6.0",
     "cucumber": "^0.9.2",
     "lodash": "^3.10.1",
-    "node-dir": "^0.1.11",
+    "node-glob-loader": "0.0.15",
     "sanitize-filename": "^1.5.3",
     "selenium-webdriver": "^2.48.2"
   },

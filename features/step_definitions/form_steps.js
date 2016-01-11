@@ -27,6 +27,7 @@ module.exports = function () {
         function (page, next) {
             this.visit(page)
                 .then(next)
+                .catch(next)
         }
     );
 
