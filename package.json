@@ -1,11 +1,8 @@
 {
   "name": "cucumber-partner",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Helper Page objects for cucumber.js",
   "main": "index.js",
-  "scripts": {
-    "postinstall": "npm install cucumber -g"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ajaxscape/cucumber-partner.git"
