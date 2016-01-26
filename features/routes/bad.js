@@ -3,6 +3,6 @@
 module.exports = {
     path: '/bad',
     pageObject: {
-        errorMessage: 'p'
+        errorMessage: 'p.err-message'
     }
 };

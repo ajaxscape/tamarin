@@ -23,3 +23,4 @@ Feature: Test cucumber-partner
     Then the error message text should contain "not the page"
     When I click the widgets link
     Then I should eventually be on the widgets page
+    And the error message should not exist

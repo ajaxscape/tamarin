@@ -50,4 +50,8 @@ module.exports = function () {
         return this.whenTextMatches(id, text);
     });
 
+    this.Then(/^the (.*) should not exist$/, function (id) {
+        return this.notFind(id);
+    });
+
 };
