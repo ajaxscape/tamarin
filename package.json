@@ -1,6 +1,6 @@
 {
   "name": "cucumber-partner",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Helper Page objects for cucumber.js",
   "main": "index.js",
   "repository": {
@@ -10,17 +10,17 @@
   "author": "Ben Surgison",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.1.1",
-    "chromedriver": "^2.20.0",
-    "cucumber": "^0.9.2",
-    "lodash": "^3.10.1",
+    "bluebird": "^3.1.2",
+    "chromedriver": "^2.21.2",
+    "cucumber": "^0.9.4",
+    "lodash": "^3.5.0",
     "node-glob-loader": "0.0.15",
     "sanitize-filename": "^1.5.3",
     "selenium-webdriver": "^2.48.2"
   },
   "devDependencies": {
-    "bower": "^1.7.0",
-    "chai": "^3.4.1",
+    "bower": "^1.7.7",
+    "chai": "^3.5.0",
     "chai-as-promised": "^5.2.0",
     "express": "^4.13.3"
   }
