@@ -59,7 +59,7 @@ module.exports = function () {
         return this.getHtml(id)
           .then(html => {
               var $ = cheerio.load(html);
-              expect($('li').length).to.equal(12)
+              expect($('li').length + '').to.equal(count)
           })
     });
 };
