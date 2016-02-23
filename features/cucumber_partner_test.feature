@@ -24,3 +24,4 @@ Feature: Test cucumber-partner
     When I click the widgets link
     Then I should eventually be on the widgets page
     And the error message should not exist
+    And I expect to see a list of 5 widgets

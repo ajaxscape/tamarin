@@ -3,6 +3,7 @@
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 var expect = chai.expect;
+var cheerio = require('cheerio');
 
 chai.use(chaiAsPromised);
 
@@ -54,4 +55,11 @@ module.exports = function () {
         return this.notFind(id);
     });
 
+    this.Then(/^I expect to see a list of (\d+) (.*)$/, function (count, id) {
+        return this.getHtml(id)
+          .then(html => {
+              var $ = cheerio.load(html);
+              expect($('li').length).to.equal(12)
+          })
+    });
 };
