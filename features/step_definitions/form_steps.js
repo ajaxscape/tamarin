@@ -2,12 +2,11 @@
 
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
-var expect = chai.expect;
 var cheerio = require('cheerio');
+var cucumber_partner = require('../../lib/world');
 
 chai.use(chaiAsPromised);
-
-var cucumber_partner = require('../../lib/world');
+chai.should();
 
 cucumber_partner.setConfig({host: 'http://localhost:3021'});
 
@@ -34,17 +33,15 @@ module.exports = function () {
     });
 
     this.When(/^I type "(.*)" into the (.*)$/, function (text, id) {
-        return this.sendKeys(id, text)
+        return this.sendKeys(id, text);
     });
 
     this.Then(/^the value of the (.*) should be "(.*)"$/, function (id, expectedVal) {
-        return this.getVal(id)
-            .then(val => expect(val).to.equal(expectedVal));
+        return this.getVal(id).should.eventually.equal(expectedVal);
     });
 
     this.Then(/^the (.*) text should contain "(.*)"$/, function (id, expectedText) {
-        return this.getText(id)
-            .then(text => expect(text).to.contain(expectedText));
+        return this.getText(id).should.eventually.contain(expectedText);
     });
 
     this.Then(/^the (.*) should eventually be "([^"]*)"$/, function (id, text) {
@@ -59,7 +56,7 @@ module.exports = function () {
         return this.getHtml(id)
           .then(html => {
               var $ = cheerio.load(html);
-              expect($('li').length + '').to.equal(count)
+              ($('li').length).should.equal(parseInt(count))
           })
     });
 };
