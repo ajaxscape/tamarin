@@ -10,7 +10,7 @@ Feature: Test cucumber-partner
     When I click the widgets link
     Then I should eventually be on the widgets page
     Then the description should eventually be "some text"
-    Then the home link has a title of home
+    Then the home link should have a title of home
     When I click the home link
     Then I should eventually be on the home page
     When I click the widget link
