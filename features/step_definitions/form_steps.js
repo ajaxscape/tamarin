@@ -54,4 +54,11 @@ module.exports = function () {
   this.Then(/^I expect to see a list of (\d+) (.*)$/, function (count, id) {
     return this.select(id, 'li').should.eventually.have.length(parseInt(count))
   });
+
+  this.Then(/^the (.*) has a (.*) of (.*)$/, function (id, attr, val) {
+    return this.select(id)
+      .then(el => {
+        el.attr(attr).should.equal(val)
+      });
+  });
 };
