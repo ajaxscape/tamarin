@@ -1,8 +1,8 @@
 'use strict';
 
-var chai = require('chai');
-var chaiAsPromised = require('chai-as-promised');
-var cucumber_partner = require('../../lib/world');
+let chai = require('chai');
+let chaiAsPromised = require('chai-as-promised');
+let cucumber_partner = require('../../lib/world');
 
 chai.use(chaiAsPromised);
 chai.should();
