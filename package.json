@@ -1,6 +1,6 @@
 {
   "name": "cucumber-partner",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "Helper Page objects for cucumber.js",
   "main": "index.js",
   "repository": {
