@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    path: ['/', '/home'],
+    path: ['http://localhost:3021/', 'http://localhost:3021/home'],
     pageObject: {
         widgetsLink: '#widgets-link',
         widgetLink: '#widget-link',

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    path: ['/bad', '/real-bad'],
+    path: ['http://localhost:3021/bad', 'http://localhost:3021/real-bad'],
     pageObject: {
         errorMessage: 'p.err-message'
     }

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    path: '/widgets/:id',
+    path: 'http://localhost:3021/widgets/:id',
     pageObject: {
         nameInput: '#name'
     }

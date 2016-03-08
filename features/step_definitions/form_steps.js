@@ -7,8 +7,6 @@ let cucumber_partner = require('../../lib/world');
 chai.use(chaiAsPromised);
 chai.should();
 
-cucumber_partner.setConfig({host: 'http://localhost:3021'});
-
 module.exports = function () {
 
   this.World = cucumber_partner.World; // overwrite default World constructor
