@@ -3,7 +3,7 @@
 module.exports = {
     path: 'http://localhost:3021/widgets',
     pageObject: {
-        menu: require('./../components/menu'),
+        header: ['header', require('./../components/header')],
         description: '#description',
         widgets: '#toys'
     }

@@ -3,7 +3,7 @@
 module.exports = {
     path: 'http://localhost:3021/widgets/:id',
     pageObject: {
-        menu: require('./../components/menu'),
+        header: ['header', require('./../components/header')],
         nameInput: '#name'
     }
 };

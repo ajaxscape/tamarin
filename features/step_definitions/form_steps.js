@@ -26,7 +26,7 @@ module.exports = function () {
   });
 
   this.When(/^I click the (.*) menu link$/, function (id) {
-    return this.click(`menu:links:${id}`);
+    return this.click(`header:menu:links:${id}`);
   });
 
   this.When(/^I type "(.*)" into the (.*)$/, function (text, id) {
@@ -54,7 +54,7 @@ module.exports = function () {
   });
 
   this.Then(/^the (.*) menu link should have a (.*) of (.*)$/, function (id, attr, val) {
-    return Promise.resolve(this.select(`menu:links:${id}`)
+    return Promise.resolve(this.select(`header:menu:links:${id}`)
       .then(el => el.attr(attr)).should.eventually.equal(val));
   });
 };
