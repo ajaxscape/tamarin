@@ -6,13 +6,13 @@
 </head>
 <body>
 
-<nav id="menu">
-    <a class="home-link" href="/home" data-view="home" title="home">Home</a>
-    <a class="widgets-link" href="/widgets" data-view="widgets" title="widgets">Widgets</a>
-    <a class="widget-link" href="/widgets/widget-1" data-view="widget" title="widget">Widget-1</a>
-</nav>
-
 <header>
+    <nav id="menu">
+        <a class="home-link" href="/home" data-view="home" title="home">Home</a>
+        <a class="widgets-link" href="/widgets" data-view="widgets" title="widgets">Widgets</a>
+        <a class="widget-link" href="/widgets/widget-1" data-view="widget" title="widget">Widget-1</a>
+        <a class="bad-link" href="/bad">Bad link</a>
+    </nav>
     <h1>Hi all</h1>
 </header>
 
@@ -23,7 +23,7 @@
 <script>
     var view = 'errors';
     $('nav a').each(function(index, link){
-        if ($(link).attr('href') === window.location.pathname) {
+        if ($(link).data('view') && $(link).attr('href') === window.location.pathname) {
             view = $(link).data('view');
         }
     });
