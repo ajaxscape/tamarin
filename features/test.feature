@@ -1,5 +1,5 @@
-Feature: Test cucumber-partner
-  As a user I would like cucumber partner to work correctly
+Feature: Test tamarin
+  As a user I would like tamarin to work correctly
 
   Background:
     Given I am using a desktop

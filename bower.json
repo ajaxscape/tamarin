@@ -1,7 +1,7 @@
 {
-  "name": "@bsurgison/cucumber-partner",
-  "version": "0.0.19",
-  "description": "Helper Page objects for cucumber.js",
+  "name": "tamarin",
+  "version": "0.0.1",
+  "description": "Extension to cucumber.js",
   "author": "Ben Surgison",
   "license": "ISC",
   "ignore": [
