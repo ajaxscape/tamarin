@@ -13,6 +13,7 @@ module.exports = function () {
   this.setDefaultTimeout(60000)
 
   this.When(/^I am using a desktop$/, function () {
+    this.setData('device type', 'desktop')
     return this.setSize(1024, 768)
   })
 
@@ -55,5 +56,9 @@ module.exports = function () {
   this.Then(/^the (.*) menu link should have a (.*) of (.*)$/, function (id, attr, val) {
     return Promise.resolve(this.select(`header:menu:links:${id}`)
       .then((el) => el.attr(attr)).should.eventually.equal(val))
+  })
+
+  this.Then(/^I should be using a (.*)$/, function (device) {
+    return this.getData('device type').should.eventually.equal(device)
   })
 }

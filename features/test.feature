@@ -3,6 +3,7 @@ Feature: Test tamarin
 
   Background:
     Given I am using a desktop
+    Then I should be using a desktop
 
   Scenario: Test Home page
     Given I visit the home page
