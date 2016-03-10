@@ -1,3 +1,3 @@
-var world = require('./lib/world');
+let world = require('./lib/world')
 
-module.exports = world;
+module.exports = world

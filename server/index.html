@@ -21,13 +21,13 @@
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 
 <script>
-    var view = 'errors';
-    $('nav a').each(function(index, link){
+    var view = 'errors'
+    $('nav a').each(function (index, link) {
         if ($(link).data('view') && $(link).attr('href') === window.location.pathname) {
-            view = $(link).data('view');
+            view = $(link).data('view')
         }
-    });
-    $( '#view' ).load( '/templates/' + view + '.html' );
+    })
+    $('#view').load('/templates/' + view + '.html')
 </script>
 
 </body>
