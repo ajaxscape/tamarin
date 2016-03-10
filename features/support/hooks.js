@@ -1,1 +1,1 @@
-module.exports = require('../../lib/world').hooks;
+module.exports = require('../../lib/world').hooks

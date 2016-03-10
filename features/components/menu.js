@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   links: {
@@ -7,4 +7,4 @@ module.exports = {
     widget: '.widget-link',
     bad: '.bad-link'
   }
-};
+}
