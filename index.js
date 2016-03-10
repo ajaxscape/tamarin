@@ -1,3 +1,3 @@
-let world = require('./lib/world')
+'use strict'
 
-module.exports = world
+module.exports = require('./lib/world')
