@@ -7,6 +7,11 @@
     "type": "git",
     "url": "https://github.com/ajaxscape/tamarin.git"
   },
+  "scripts": {
+    "test": "node_modules/cucumber/bin/cucumber.js",
+    "lint": "node_modules/standard/bin/cmd.js",
+    "start": "node server/app.js"
+  },
   "author": "Ben Surgison",
   "license": "ISC",
   "dependencies": {
