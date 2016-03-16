@@ -6,6 +6,7 @@ bower_components
 node_modules
 screenshots
 npm-debug.log
+debug.log
 
 .idea
 # Created by .ignore support plugin (hsz.mobi)
