@@ -1,6 +1,6 @@
 {
   "name": "tamarin",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Extension to cucumber.js",
   "main": "index.js",
   "repository": {
@@ -16,6 +16,8 @@
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.1.2",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.2.0",
     "cheerio": "^0.20.0",
     "chromedriver": "^2.21.2",
     "cucumber": "^0.9.4",
@@ -26,8 +28,6 @@
   },
   "devDependencies": {
     "bower": "^1.7.7",
-    "chai": "^3.5.0",
-    "chai-as-promised": "^5.2.0",
     "express": "^4.13.3",
     "standard": "^6.0.8"
   }

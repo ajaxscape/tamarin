@@ -1,14 +1,7 @@
 'use strict'
 
-let chai = require('chai')
-let chaiAsPromised = require('chai-as-promised')
-let cucumber_partner = require('../../lib/world')
-
-chai.use(chaiAsPromised)
-chai.should()
-
 module.exports = function () {
-  this.World = cucumber_partner.World // overwrite default World constructor
+  this.World = require('../../lib/world').World // overwrite default World constructor
 
   this.setDefaultTimeout(60000)
 
