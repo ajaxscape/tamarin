@@ -4,7 +4,7 @@ Extends `Cucumber.js` to include page objects and provide a simplified DSL using
 
 [![NPM Version][npm-image]][npm-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
-[![js-standard-style][standard-image][standard-url]
+[![js-standard-style][standard-image]][standard-url]
 
 
 ## Install
@@ -26,4 +26,4 @@ TODO
 [coveralls-image]: https://img.shields.io/coveralls/live-js/tamarin/master.svg
 [coveralls-url]: https://coveralls.io/r/live-js/tamarin?branch=master
 [standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
-[standard-url]: http://standardjs.com/
+[standard-url]: http://standardjs.com
