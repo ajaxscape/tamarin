@@ -1,6 +1,6 @@
 {
   "name": "tamarin",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Extension to cucumber.js",
   "main": "index.js",
   "repository": {
@@ -8,9 +8,13 @@
     "url": "https://github.com/ajaxscape/tamarin.git"
   },
   "scripts": {
-    "test": "node_modules/cucumber/bin/cucumber.js",
-    "lint": "node_modules/standard/bin/cmd.js",
-    "start": "node server/app.js"
+    "test": "./node_modules/cucumber/bin/cucumber.js",
+    "lint": "./node_modules/standard/bin/cmd.js",
+    "start": "./node server/app.js",
+    "clean": "rm -rf ./node_modules"
+  },
+  "standard": {
+    "global": []
   },
   "author": "Ben Surgison",
   "license": "ISC",
