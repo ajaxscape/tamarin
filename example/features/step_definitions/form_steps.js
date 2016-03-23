@@ -1,10 +1,6 @@
 'use strict'
 
 module.exports = function () {
-  this.World = require('../../lib/world').World // overwrite default World constructor
-
-  this.setDefaultTimeout(60000)
-
   this.When(/^I am using a desktop$/, function () {
     this.setData('device type', 'desktop')
     return this.setSize(1024, 768)

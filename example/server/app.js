@@ -4,7 +4,7 @@ let express = require('express')
 let path = require('path')
 let app = express()
 
-app.use(express.static('./server/public'))
+app.use(express.static(`${__dirname}/public`))
 
 app.all('/*', function (req, res) {
   if (req.originalUrl.indexOf('.') !== -1) {

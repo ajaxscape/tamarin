@@ -13,9 +13,31 @@ Extends `Cucumber.js` to include page objects and provide a simplified DSL using
 npm i -S tamarin
 ```
 
-## Usage
+## Prerequisites
 
-TODO
+* [Node.js](https://nodejs.org) or [io.js](https://iojs.org)
+* [NPM](https://www.npmjs.com)
+
+## Example
+
+To see an example of how to use this module, please clone tamarin from [github](https://github.com/ajaxscape/tamarin) and install:
+```bash
+git clone https://github.com/ajaxscape/tamarin.git
+cd tamarin
+npm install
+bower install
+```
+
+Start the example server:
+```bash
+npm run server
+```
+
+In a separate terminal navigate to the tamarin project and then start cucumber:
+```bash
+cd tamarin
+npm run cucumber
+```
 
 ## License
 
