@@ -26,7 +26,7 @@
     "chromedriver": "^2.21.2",
     "cucumber": "^0.9.4",
     "lodash": "^3.5.0",
-    "node-glob-loader": "0.0.15",
+    "node-glob-loader": "0.0.16",
     "sanitize-filename": "^1.5.3",
     "selenium-webdriver": "^2.48.2"
   },
