@@ -1,6 +1,6 @@
 {
   "name": "tamarin",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Extension to cucumber.js",
   "main": "index.js",
   "repository": {
@@ -26,7 +26,7 @@
     "chromedriver": "^2.21.2",
     "cucumber": "^0.9.4",
     "lodash": "^3.5.0",
-    "node-glob-loader": "0.0.16",
+    "node-glob-loader": "0.0.15",
     "sanitize-filename": "^1.5.3",
     "selenium-webdriver": "^2.48.2"
   },
