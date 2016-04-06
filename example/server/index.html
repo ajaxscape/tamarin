@@ -26,8 +26,9 @@
     var $link
     $('nav a')
             .on('click', function (e) {
+                e.preventDefault()
+                $(e.currentTarget).addClass('selected')
                 setTimeout(function() {
-                    $(e.currentTarget).addClass('selected')
                     location.pathname = $(e.currentTarget).attr('href')
                 }, 350)
             })
