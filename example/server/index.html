@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Tamarin</title>
+    <link rel="stylesheet" type="text/css" href="/theme.css">
 </head>
 <body>
 
@@ -22,12 +23,27 @@
 
 <script>
     var view = 'errors'
-    $('nav a').each(function (index, link) {
-        if ($(link).data('view') && $(link).attr('href') === window.location.pathname) {
-            view = $(link).data('view')
-        }
+    var $link
+    $('nav a')
+            .on('click', function (e) {
+                setTimeout(function() {
+                    $(e.currentTarget).addClass('selected')
+                    location.pathname = $(e.currentTarget).attr('href')
+                }, 350)
+            })
+            .each(function (index, link) {
+                if ($(link).data('view') && $(link).attr('href') === location.pathname) {
+                    $link = $(link)
+                    view = $(link).data('view')
+                    document.title += ':' + view
+                }
+            })
+    $('#view').load('/templates/' + view + '.html', function () {
+        document.title += ':' + view
     })
-    $('#view').load('/templates/' + view + '.html')
+    if ($link) {
+        $link.addClass('selected')
+    }
 </script>
 
 </body>

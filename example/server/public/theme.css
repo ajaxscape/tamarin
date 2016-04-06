@@ -1,0 +1,23 @@
+body {
+    background: #c9ffff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#menu {
+    display: inline-block;
+    background: #ffffff;
+    padding: 0.25em 0;
+}
+
+#menu a, #menu a:visited {
+    transition: all 0.75s ease-in;
+    color: #6f6eff;
+    background: #ffffff;
+    padding: 0.25em 0.75em;
+    text-decoration: none;
+}
+
+#menu a.selected, #menu a.selected:visited {
+    background: #6f6eff;
+    color: #ffffff;
+}
