@@ -1,13 +1,23 @@
-<section>
+<section id="login">
     <form>
-        <div>
+        <div class="field">
             <label for="username">Username</label>
             <input id="username" name="username" type="text" autocapitalize="off" autocorrect="off">
         </div>
-        <div>
+        <div class="field">
             <label for="password">Password</label>
             <input id="password" name="password" type="password">
         </div>
         <button type="submit">Login</button>
     </form>
+    <script>
+        $('button[type="submit"]').on('click', function (event) {
+            event.preventDefault()
+            var user = 'testuser'
+            if ($('#username').val() === user && $('#password').val() === 'testpass') {
+                $.localStorage.set('user', user)
+                document.location = $.query.get('return')
+            }
+        })
+    </script>
 </section>

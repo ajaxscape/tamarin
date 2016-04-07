@@ -21,40 +21,44 @@
 
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/bower_components/jquery-storage-api/jquery.storageapi.min.js"></script>
+<script src="/bower_components/jquery-query-object/jquery.query-object.js"></script>
 
 <script>
     // The following script has been written to simulate dynamic loading of pages
     // as a testbed for the tamarin module and has deliberate delays
-    var view = 'errors'
-    var $link
-    $('nav a')
-            .on('click', function (e) {
-                e.preventDefault()
-                $('.selected').removeClass('selected')
-                $(e.currentTarget).addClass('selected')
-                setTimeout(function () {
-                    location.pathname = $(e.currentTarget).attr('href')
-                }, 250)
-            })
-            .filter('[href="' + location.pathname + '"]').addClass('selected')
-    switch (location.pathname) {
-        case '/home':
-            view = 'home';
-            break;
-        case '/login':
-            view = 'home';
-            break;
-        case '/widgets':
-            view = 'widgets';
-            break;
-        case '/widgets/widget-1':
-            view = 'widget';
-            break;
+    if (location.pathname === '/login' || $.localStorage.get('user')) {
+        var view = 'errors'
+        $('nav a')
+                .on('click', function (e) {
+                    e.preventDefault()
+                    $('.selected').removeClass('selected')
+                    $(e.currentTarget).addClass('selected')
+                    setTimeout(function () {
+                        location.pathname = $(e.currentTarget).attr('href')
+                    }, 250)
+                })
+                .filter('[href="' + location.pathname + '"]').addClass('selected')
+        switch (location.pathname) {
+            case '/home':
+                view = 'home';
+                break;
+            case '/login':
+                view = 'login';
+                break;
+            case '/widgets':
+                view = 'widgets';
+                break;
+            case '/widgets/widget-1':
+                view = 'widget';
+                break;
+        }
+        document.title += ':' + view
+        $('#view').load('/templates/' + view + '.html', function () {
+            console.log(view + ': loaded')
+        })
+    } else {
+        location.pathname = '/login?return=' + location.pathname
     }
-    document.title += ':' + view
-    $('#view').load('/templates/' + view + '.html', function () {
-        console.log(view + ': loaded')
-    })
 </script>
 
 </body>
