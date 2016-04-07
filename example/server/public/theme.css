@@ -10,7 +10,7 @@ body {
 }
 
 #menu a, #menu a:visited {
-    transition: all 0.75s ease-in;
+    transition: all 0.25s ease-in;
     color: #6f6eff;
     background: #ffffff;
     padding: 0.25em 0.75em;

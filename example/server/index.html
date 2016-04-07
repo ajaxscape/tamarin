@@ -20,17 +20,18 @@
 <div id="view"></div>
 
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/jquery-storage-api/jquery.storageapi.min.js"></script>
 
 <script>
+    // The following script has been written to simulate dynamic loading of pages
+    // as a testbed for the tamarin module and has deliberate delays
     var view = 'errors'
     var $link
     $('nav a')
             .on('click', function (e) {
                 e.preventDefault()
                 $(e.currentTarget).addClass('selected')
-                setTimeout(function() {
-                    location.pathname = $(e.currentTarget).attr('href')
-                }, 350)
+                location.pathname = $(e.currentTarget).attr('href')
             })
             .each(function (index, link) {
                 if ($(link).data('view') && $(link).attr('href') === location.pathname) {
