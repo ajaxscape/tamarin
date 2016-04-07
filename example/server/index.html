@@ -13,6 +13,7 @@
         <a class="widgets-link" href="/widgets" data-view="widgets" title="widgets">Widgets</a>
         <a class="widget-link" href="/widgets/widget-1" data-view="widget" title="widget">Widget-1</a>
         <a class="bad-link" href="/bad">Bad link</a>
+        <a class="logout-link" href="#">Logout</a>
     </nav>
     <h1>Hi all</h1>
 </header>
@@ -34,12 +35,17 @@
                     $('.selected').removeClass('selected')
                     $(e.currentTarget).addClass('selected')
                     setTimeout(function () {
-                        location.pathname = $(e.currentTarget).attr('href')
+                        if ($(e.currentTarget).hasClass('logout-link')) {
+                            $.localStorage.remove('user')
+                            location.reload(false)
+                        } else {
+                            location = $(e.currentTarget).attr('href')
+                        }
                     }, 250)
                 })
                 .filter('[href="' + location.pathname + '"]').addClass('selected')
         switch (location.pathname) {
-            case '/home':
+            case '/':
                 view = 'home';
                 break;
             case '/login':
@@ -57,7 +63,7 @@
             console.log(view + ': loaded')
         })
     } else {
-        location.pathname = '/login?return=' + location.pathname
+        location = '/login?return=' + location.pathname
     }
 </script>
 
