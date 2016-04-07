@@ -30,22 +30,31 @@
     $('nav a')
             .on('click', function (e) {
                 e.preventDefault()
+                $('.selected').removeClass('selected')
                 $(e.currentTarget).addClass('selected')
-                location.pathname = $(e.currentTarget).attr('href')
+                setTimeout(function () {
+                    location.pathname = $(e.currentTarget).attr('href')
+                }, 250)
             })
-            .each(function (index, link) {
-                if ($(link).data('view') && $(link).attr('href') === location.pathname) {
-                    $link = $(link)
-                    view = $(link).data('view')
-                    document.title += ':' + view
-                }
-            })
-    $('#view').load('/templates/' + view + '.html', function () {
-        document.title += ':' + view
-    })
-    if ($link) {
-        $link.addClass('selected')
+            .filter('[href="' + location.pathname + '"]').addClass('selected')
+    switch (location.pathname) {
+        case '/home':
+            view = 'home';
+            break;
+        case '/login':
+            view = 'home';
+            break;
+        case '/widgets':
+            view = 'widgets';
+            break;
+        case '/widgets/widget-1':
+            view = 'widget';
+            break;
     }
+    document.title += ':' + view
+    $('#view').load('/templates/' + view + '.html', function () {
+        console.log(view + ': loaded')
+    })
 </script>
 
 </body>
