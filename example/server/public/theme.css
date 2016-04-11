@@ -4,9 +4,13 @@ body {
 }
 
 #menu {
-    display: inline-block;
+    display: none;
     background: #ffffff;
     padding: 0.25em 0;
+}
+
+#menu.logged-in {
+    display: inline-block;
 }
 
 #menu a, #menu a:visited {
