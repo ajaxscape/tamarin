@@ -9,6 +9,16 @@ module.exports = {
       `${base_url}/home`],
     pageObject: require('./components/home')
   },
+  logout: {
+    path: `${base_url}/logout`
+  },
+  login: {
+    path: [
+      `${base_url}/login`,
+      `${base_url}/login/`,
+      `${base_url}/login/:redirect-url`],
+    pageObject: require('./components/login')
+  },
   bad: {
     path: [
       `${base_url}/bad`,

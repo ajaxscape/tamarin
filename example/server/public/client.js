@@ -43,6 +43,6 @@ if (location.pathname === '/login' || $.localStorage.get('user')) {
     console.log(view + ': loaded')
   })
 } else {
-  history.replaceState({}, 'login', '/login?return=' + location.pathname)
+  history.replaceState({}, 'login', '/login/?return=' + location.pathname)
   location.reload(true)
 }

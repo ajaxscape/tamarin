@@ -4,15 +4,15 @@ var tamarin = require('./../../../index')
 
 // var tamarin = require('tamarin')
 
-var users = [
-  {username: 'fred', password: 'abc'},
-  {username: 'bill', password: 'def'},
-  {username: 'sarah', password: 'ghi'}
-]
-
 class World extends tamarin.World {
-  getTestUser (user) {
-    return Promise.resolve(users[user])
+  login (username, password) {
+    return this.sendKeys('username', username)
+      .then(() => this.sendKeys('password', password))
+      .then(() => this.click('login'))
+  }
+
+  logout () {
+    return this.visit('logout')
   }
 }
 
