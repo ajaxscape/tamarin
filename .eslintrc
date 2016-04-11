@@ -2,6 +2,7 @@
   "extends": "standard",
   "globals": {
     "$": true,
-    "location": true
+    "location": true,
+    "history": true
   }
 }

@@ -17,7 +17,8 @@ if (location.pathname === '/login' || $.localStorage.get('user')) {
             $.localStorage.remove('user')
             location.pathname = '/'
           } else {
-            location = $(e.currentTarget).attr('href')
+            history.replaceState({}, '', $(e.currentTarget).attr('href'))
+            location.reload(true)
           }
         }, 250)
       })
@@ -42,5 +43,6 @@ if (location.pathname === '/login' || $.localStorage.get('user')) {
     console.log(view + ': loaded')
   })
 } else {
-  location = '/login?return=' + location.pathname
+  history.replaceState({}, 'login', '/login?return=' + location.pathname)
+  location.reload(true)
 }

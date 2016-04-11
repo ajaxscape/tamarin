@@ -29,8 +29,10 @@ crashlytics-build.properties
 example
 screenshots
 server
+bower.json
 .eslintrc
 .gitignore
 .bowerrc
+
 
 

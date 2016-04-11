@@ -14,7 +14,7 @@
     "clean": "rm -rf ./node_modules"
   },
   "standard": {
-    "global": []
+    "global": ["$", "location", "history"]
   },
   "author": "Ben Surgison",
   "license": "ISC",
