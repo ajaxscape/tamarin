@@ -32,6 +32,7 @@ server
 bower.json
 .eslintrc
 .gitignore
+.npmignore
 .bowerrc
 
 
