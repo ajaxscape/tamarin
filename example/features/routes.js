@@ -15,8 +15,7 @@ module.exports = {
   login: {
     path: [
       `${base_url}/login`,
-      `${base_url}/login/`,
-      `${base_url}/login/:redirect-url`],
+      `${base_url}/login/`],
     pageObject: require('./components/login')
   },
   bad: {

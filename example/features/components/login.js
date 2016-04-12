@@ -1,5 +1,7 @@
 'use strict'
 
 module.exports = {
-  header: ['header', require('./partials/header')]
+  username: '#username',
+  password: '#password',
+  login: '[type="submit"]'
 }
