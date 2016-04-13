@@ -3,5 +3,6 @@
 module.exports = {
   username: '#username',
   password: '#password',
-  login: '[type="submit"]'
+  login: '[type="submit"]',
+  errorMessage: '.error-message'
 }

@@ -4,11 +4,26 @@ Feature: Test tamarin
   Background:
     Given I am logged out
 
-  Scenario: Test Home page
+  Scenario: Load the Home page, force login, fail
+    Given I visit the home page
+    Then I should be on the login page
+    And the error message is not displayed
+    When I login as an invalid user
+    Then I should be on the login page
+    And the error message is displayed
+
+  Scenario: Load the Home page forces login, success
     Given I visit the home page
     Then I should be on the login page
     When I login as a valid user
     Then I should be on the home page
+
+  Scenario: Load the Widgets page forces login, success
+    Given I visit the widgets page
+    Then I should be on the login page
+    When I login as a valid user
+    Then I should be on the widgets page
+
 #    Then the description should eventually be "some text"
 #    Then the home menu link should have a title of home
 #    When I click the home menu link

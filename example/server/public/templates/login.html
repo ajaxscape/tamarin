@@ -1,5 +1,6 @@
 <section id="login">
     <form>
+        <p class="login-error"></p>
         <div class="field">
             <label for="username">Username</label>
             <input id="username" name="username" type="text" autocapitalize="off" autocorrect="off">
@@ -17,6 +18,8 @@
             if ($('#username').val() === user && $('#password').val() === 'testpass') {
                 $.localStorage.set('user', user)
                 document.location = $.query.get('return')
+            } else {
+                $('.login-error').text('Invalid username or password')
             }
         })
     </script>

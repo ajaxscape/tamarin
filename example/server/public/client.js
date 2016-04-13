@@ -12,7 +12,23 @@ if (!String.prototype.startsWith) {
 // This has been written to simulate dynamic loading of pages
 // as a testbed for the tamarin module and has deliberate delays
 
-if (location.pathname.startsWith('/login') || $.localStorage.get('user')) {
+function redirectToLogin (returnPath) {
+  history.replaceState({}, 'login', '/login/?return=' + returnPath)
+  location.reload(true)
+}
+
+function logout () {
+  $.localStorage.remove('user')
+  redirectToLogin('/')
+}
+
+if (location.pathname.startsWith('/logout')) {
+  logout()
+}
+
+var user = $.localStorage.get('user')
+
+if (location.pathname.startsWith('/login') || user) {
   var view = 'errors'
   if (!location.pathname.startsWith('/login')) {
     $('nav').addClass('logged-in')
@@ -22,13 +38,8 @@ if (location.pathname.startsWith('/login') || $.localStorage.get('user')) {
         $('.selected').removeClass('selected')
         $(e.currentTarget).addClass('selected')
         setTimeout(function () {
-          if ($(e.currentTarget).hasClass('logout-link')) {
-            $.localStorage.remove('user')
-            location.pathname = '/'
-          } else {
-            history.replaceState({}, '', $(e.currentTarget).attr('href'))
-            location.reload(true)
-          }
+          history.replaceState({}, '', $(e.currentTarget).attr('href'))
+          location.reload(true)
         }, 250)
       })
       .filter('[href="' + location.pathname + '"]').addClass('selected')
@@ -56,6 +67,5 @@ if (location.pathname.startsWith('/login') || $.localStorage.get('user')) {
     console.log(view + ': loaded')
   })
 } else {
-  history.replaceState({}, 'login', '/login/?return=' + location.pathname)
-  location.reload(true)
+  redirectToLogin(location.pathname)
 }
