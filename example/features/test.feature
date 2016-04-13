@@ -7,10 +7,10 @@ Feature: Test tamarin
   Scenario: Load the Home page, force login, fail
     Given I visit the home page
     Then I should be on the login page
-    And the error message is not displayed
+    And the login error is not displayed
     When I login as an invalid user
     Then I should be on the login page
-    And the error message is displayed
+    And the login error is displayed
 
   Scenario: Load the Home page forces login, success
     Given I visit the home page

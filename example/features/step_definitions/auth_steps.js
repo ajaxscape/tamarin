@@ -13,12 +13,4 @@ module.exports = function () {
   this.Then(/^I login as an invalid user$/, function () {
     return this.login('baduser', 'badpass')
   })
-
-  this.When(/^the error message is displayed/, function () {
-    return this.whenVisible('login-error')
-  })
-
-  this.When(/^the error message is not displayed/, function () {
-    return this.whenHidden('login-error')
-  })
 }

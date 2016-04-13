@@ -52,4 +52,12 @@ module.exports = function () {
   this.Then(/^I should be using a (.*)$/, function (device) {
     return this.getData('device type').should.eventually.equal(device)
   })
+
+  this.When(/^the (.*) is displayed/, function (id) {
+    return this.whenVisible(id)
+  })
+
+  this.When(/^the (.*) is not displayed/, function (id) {
+    return this.whenHidden(id)
+  })
 }
