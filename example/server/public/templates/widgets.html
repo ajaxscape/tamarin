@@ -1,6 +1,17 @@
 <section>
-    <h1>Welcome widgets</h1>
-    <p id="description"></p>
+    <h1>Widgets</h1>
+    <form>
+        <p id="description">Please add a widget:</p>
+        <div class="field">
+            <label for="widget_id">Widget Id</label>
+            <input id="widget_id" name="widget_id" type="text" autocapitalize="off" autocorrect="off">
+        </div>
+        <div class="field">
+            <label for="widget_name">Name</label>
+            <input id="widget_name" name="widget_name" type="text" autocorrect="off">
+        </div>
+        <button type="submit">Add</button>
+    </form>
     <ul id="toys">
         <li>Toy</li>
         <li>Car</li>

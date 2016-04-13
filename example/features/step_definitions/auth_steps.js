@@ -6,6 +6,10 @@ module.exports = function () {
       .then(() => this.whenPageIs('login'))
   })
 
+  this.When(/^I reset all data$/, function () {
+    return this.initStorage()
+  })
+
   this.When(/^I login as a valid user$/, function () {
     return this.login('testuser', 'testpass')
   })

@@ -14,6 +14,14 @@ class World extends tamarin.World {
   logout () {
     return this.visit('logout')
   }
+
+  initStorage () {
+    return this.driver.executeScript(() => {
+      (function () {
+        $.localStorage.removeAll()
+      })()
+    })
+  }
 }
 
 module.exports = {

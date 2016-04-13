@@ -3,6 +3,7 @@ Feature: Test tamarin
 
   Background:
     Given I am logged out
+    And I reset all data
 
   Scenario: Load the Home page, force login, fail
     Given I visit the home page
