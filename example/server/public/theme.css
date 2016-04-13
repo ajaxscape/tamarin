@@ -1,5 +1,4 @@
 body {
-    background: #c9ffff;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -36,4 +35,9 @@ form .field {
 
 form .field label {
     display: block;
+}
+
+form .error-message {
+    background: #ff0000;
+    color: #ffffff;
 }

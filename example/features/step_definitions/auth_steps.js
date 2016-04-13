@@ -15,10 +15,10 @@ module.exports = function () {
   })
 
   this.When(/^the error message is displayed/, function () {
-    return this.getText('error-message').should.eventually.not.have.length(0, 'error should be displayed')
+    return this.whenVisible('login-error')
   })
 
   this.When(/^the error message is not displayed/, function () {
-    return this.getText('error-message').should.eventually.have.length(0, 'error should not be displayed')
+    return this.whenHidden('login-error')
   })
 }
