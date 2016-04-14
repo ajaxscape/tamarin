@@ -22,6 +22,26 @@ function logout () {
   redirectToLogin('/')
 }
 
+function getView (path) {
+  if (path.startsWith('/widgets/')) {
+    var widgets = $.localStorage.get('widgets') || []
+    var widgetId = path.split('/')[2]
+    if (widgets.filter(function (widget) { return widget.id === widgetId }).pop()) {
+      return 'widget'
+    }
+  } else {
+    switch (path) {
+      case '':
+        return 'home'
+      case '/login':
+        return 'login'
+      case '/widgets':
+        return 'widgets'
+    }
+  }
+  return 'errors'
+}
+
 if (location.pathname.startsWith('/logout')) {
   logout()
 }
@@ -29,7 +49,6 @@ if (location.pathname.startsWith('/logout')) {
 var user = $.localStorage.get('user')
 
 if (location.pathname.startsWith('/login') || user) {
-  var view = 'errors'
   if (!location.pathname.startsWith('/login')) {
     $('nav').addClass('logged-in')
     $('nav a')
@@ -48,20 +67,7 @@ if (location.pathname.startsWith('/login') || user) {
   if (path.substr(path.length - 1) === '/') {
     path = path.substr(0, path.length - 1)
   }
-  switch (path) {
-    case '':
-      view = 'home'
-      break
-    case '/login':
-      view = 'login'
-      break
-    case '/widgets':
-      view = 'widgets'
-      break
-    case '/widgets/widget-1':
-      view = 'widget'
-      break
-  }
+  var view = getView(path)
   document.title += ':' + view
   $('#view').load('/templates/' + view + '.html', function () {
     console.log(view + ': loaded')

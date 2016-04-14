@@ -19,7 +19,7 @@
 <script>
     function displayWidgets() {
         $('#widgets').html(($.localStorage.get('widgets') || []).map(function (widget) {
-            return '<li id="' + widget.id + '"><a href="/widget/' + widget.id + '" title="' + widget.description + '">' + widget.name + '</a><button type="button" class="remove_widget">-</button></li>'
+            return '<li id="' + widget.id + '"><a href="/widgets/' + widget.id + '" title="' + widget.description + '">' + widget.name + '</a><button type="button" class="remove_widget">-</button></li>'
         }).join('\n'))
     }
     $('#add_widget').on('click', function (event) {
