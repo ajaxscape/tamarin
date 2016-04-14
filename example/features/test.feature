@@ -24,6 +24,9 @@ Feature: Test tamarin
     Then I should be on the login page
     When I login as a valid user
     Then I should be on the widgets page
+    When I add a widget
+    And  I add a widget
+    Then I should have 2 widgets
 
 #    Then the description should eventually be "some text"
 #    Then the home menu link should have a title of home

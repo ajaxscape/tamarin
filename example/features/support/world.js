@@ -25,7 +25,9 @@ class World extends tamarin.World {
   }
 
   addWidget () {
-    return Promise.resolve()
+    return this.sendKeys('widgetName', faker.commerce.productName())
+      .then(() => this.sendKeys('widgetDesc', faker.commerce.productAdjective() + ' ' + faker.commerce.productMaterial()))
+      .then(() => this.click('addWidget'))
   }
 }
 
