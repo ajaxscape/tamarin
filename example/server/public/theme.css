@@ -41,3 +41,7 @@ form .error-message {
     background: #ff0000;
     color: #ffffff;
 }
+
+li button {
+    margin-left: 1em;
+}

@@ -14,7 +14,11 @@
     "clean": "rm -rf ./node_modules"
   },
   "standard": {
-    "global": ["$", "location", "history"]
+    "global": [
+      "$",
+      "location",
+      "history"
+    ]
   },
   "author": "Ben Surgison",
   "license": "ISC",
@@ -31,8 +35,10 @@
     "selenium-webdriver": "^2.48.2"
   },
   "devDependencies": {
+    "Faker": "^0.7.2",
     "bower": "^1.7.7",
     "express": "^4.13.3",
+    "faker": "^3.1.0",
     "standard": "^6.0.8"
   }
 }

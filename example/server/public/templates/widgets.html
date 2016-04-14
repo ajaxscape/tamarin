@@ -3,25 +3,49 @@
     <form>
         <p id="description">Please add a widget:</p>
         <div class="field">
-            <label for="widget_id">Widget Id</label>
-            <input id="widget_id" name="widget_id" type="text" autocapitalize="off" autocorrect="off">
-        </div>
-        <div class="field">
             <label for="widget_name">Name</label>
             <input id="widget_name" name="widget_name" type="text" autocorrect="off">
         </div>
-        <button type="submit">Add</button>
+        <div class="field">
+            <label for="widget_description">Description</label>
+            <input id="widget_description" name="widget_description" type="text" autocorrect="off">
+        </div>
+        <button type="submit" id="add_widget">Add</button>
     </form>
-    <ul id="toys">
-        <li>Toy</li>
-        <li>Car</li>
-        <li>Doll</li>
-        <li>Game</li>
-        <li>Ted</li>
+    <ul id="widgets">
     </ul>
+    <button type="submit" id="remove_all_widgets">Remove all</button>
 </section>
 <script>
-    setTimeout(function () {
-        document.getElementById('description').innerHTML = 'some text'
-    }, 500)
+    function displayWidgets() {
+        $('#widgets').html(($.localStorage.get('widgets') || []).map(function (widget) {
+            return '<li id="' + widget.id + '"><a href="/widget/' + widget.id + '">' + widget.name + '</a><button type="button" class="remove_widget">-</button></li>'
+        }).join('\n'))
+    }
+    $('#add_widget').on('click', function (event) {
+        event.preventDefault()
+        var widget = {
+            id: faker.random.uuid(),
+            name: $('#widget_name').val(),
+            description: $('#widget_description').val()
+        }
+        var widgets = $.localStorage.get('widgets') || []
+        widgets.push(widget)
+        $.localStorage.set('widgets', widgets)
+        displayWidgets()
+    })
+    $('#remove_all_widgets').on('click', function (event) {
+        event.preventDefault()
+        $.localStorage.remove('widgets')
+        displayWidgets()
+    })
+    $( "#widgets" ).on( "click", ".remove_widget", function(event) {
+        event.preventDefault()
+        var widgetId = $(event.currentTarget).parent()[0].id
+        $.localStorage.set('widgets', $.localStorage.get('widgets').filter(function (widget) {
+            return widget.id !== widgetId
+        }))
+        displayWidgets()
+    })
+    displayWidgets()
 </script>

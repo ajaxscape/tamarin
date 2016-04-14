@@ -1,6 +1,7 @@
 'use strict'
 
 var tamarin = require('./../../../index')
+var faker = require('faker')
 
 // var tamarin = require('tamarin')
 
@@ -21,6 +22,10 @@ class World extends tamarin.World {
         $.localStorage.removeAll()
       })()
     })
+  }
+
+  addWidget () {
+    return Promise.resolve()
   }
 }
 
