@@ -14,7 +14,12 @@ module.exports = function () {
     return this.login('testuser', 'testpass')
   })
 
-  this.Then(/^I login as an invalid user$/, function () {
+  this.When(/^I login as an invalid user$/, function () {
     return this.login('baduser', 'badpass')
+  })
+
+  this.When(/^I login and visit the (.*) page$/, function (page) {
+    return this.visit(page)
+      .then(() => this.login('testuser', 'testpass'))
   })
 }

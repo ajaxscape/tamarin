@@ -26,6 +26,7 @@ crashlytics.properties
 crashlytics-build.properties
 
 # Development support
+Dockerfile
 example
 screenshots
 server

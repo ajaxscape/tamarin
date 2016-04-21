@@ -3,7 +3,6 @@ Feature: Test tamarin
 
   Background:
     Given I am logged out
-    And I reset all data
 
   Scenario: Load the Home page, force login, fail
     Given I visit the home page
@@ -20,13 +19,17 @@ Feature: Test tamarin
     Then I should be on the home page
 
   Scenario: Load the Widgets page forces login, success
-    Given I visit the widgets page
-    Then I should be on the login page
-    When I login as a valid user
-    Then I should be on the widgets page
+    Given I reset all data
+    And I login and visit the widgets page
     When I add a widget
     And  I add a widget
     Then I should have 2 widgets
+
+  Scenario: Load the Widgets page forces login, success
+    Given I login and visit the widgets page
+    Then I should have 2 widgets
+    When I remove the last widget
+    Then I should have 1 widget
 
 #    Then the description should eventually be "some text"
 #    Then the home menu link should have a title of home

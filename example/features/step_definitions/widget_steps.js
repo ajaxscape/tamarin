@@ -5,7 +5,7 @@ module.exports = function () {
     return this.addWidget()
   })
 
-  this.When(/^I should have 2 widgets$/, function () {
+  this.When(/^I should have (\d+) (?:widget|widgets)$/, function (count) {
     return Promise.resolve()
   })
 }
