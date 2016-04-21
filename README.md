@@ -30,13 +30,13 @@ bower install
 
 Start the example server:
 ```bash
-npm run server
+npm start
 ```
 
 In a separate terminal navigate to the tamarin project and then start cucumber:
 ```bash
 cd tamarin
-npm run cucumber
+npm test
 ```
 
 ## License
