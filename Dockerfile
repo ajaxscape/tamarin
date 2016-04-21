@@ -13,5 +13,5 @@ RUN bower install
 # Bundle app source
 COPY . /usr/src/app
 
-EXPOSE 3020
+EXPOSE 3021
 CMD [ "npm", "server" ]
