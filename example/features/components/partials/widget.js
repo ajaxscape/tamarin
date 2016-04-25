@@ -2,5 +2,5 @@
 
 module.exports = {
   link: 'a',
-  remove: '.remove_widget'
+  removeWidget: '.remove_widget'
 }

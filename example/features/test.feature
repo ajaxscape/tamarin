@@ -22,7 +22,7 @@ Feature: Test tamarin
     Given I reset all data
     And I login and visit the widgets page
     When I add a widget
-    And  I add a widget
+    And  I add another widget
     Then I should have 2 widgets
 
   Scenario: Load the Widgets page forces login, success

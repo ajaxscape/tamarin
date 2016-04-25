@@ -29,6 +29,10 @@ class World extends tamarin.World {
       .then(() => this.sendKeys('widgetDesc', faker.commerce.productAdjective() + ' ' + faker.commerce.productMaterial()))
       .then(() => this.click('addWidget'))
   }
+
+  removeWidget (pos) {
+    return this.click(`widgets:${pos}:removeWidget`)
+  }
 }
 
 module.exports = {
