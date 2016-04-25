@@ -6,7 +6,7 @@ module.exports = function () {
   })
 
   this.When(/^I should have (\d+) (?:widget|widgets)$/, function (count) {
-    return Promise.resolve()
+    return this.select('widgets', 'li').should.eventually.have.length(parseInt(count))
   })
 
   this.When(/^I remove the (.*) widget$/, function (pos) {
