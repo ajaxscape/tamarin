@@ -21,11 +21,11 @@ class World extends tamarin.World {
   }
 
   getStorage (key) {
-    return this.driver.executeScript(() => $.localStorage.get(arguments[0]), key)
+    return this.driver.executeScript(($key) => $.localStorage.get($key), key)
   }
 
   setStorage (key, val) {
-    return this.driver.executeScript(() => $.localStorage.set(arguments[0], arguments[1]), key, val)
+    return this.driver.executeScript(($key, $val) => $.localStorage.set($key, $val), key, val)
   }
 
   createUser () {
