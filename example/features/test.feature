@@ -5,7 +5,8 @@ Feature: Test tamarin
     Given I am logged out
 
   Scenario: Load the Home page, force login, fail
-    Given I visit the home page
+    Given I create a valid user
+    And I visit the home page
     Then I should be on the login page
     And the login error is not displayed
     When I login as an invalid user
@@ -13,13 +14,14 @@ Feature: Test tamarin
     And the login error is displayed
 
   Scenario: Load the Home page forces login, success
-    Given I visit the home page
+    Given I create a valid user
+    And I visit the home page
     Then I should be on the login page
     When I login as a valid user
     Then I should be on the home page
 
   Scenario: Load the Widgets page forces login, success
-    Given I reset all data
+    Given I create a valid user
     And I login and visit the widgets page
     When I add a widget
     And  I add another widget

@@ -12,10 +12,7 @@
         <button type="submit">Login</button>
     </form>
     <script>
-        var validUser = {
-            username: faker.internet.userName(),
-            password: faker.internet.password()}
-        $.localStorage.set('validUser', validUser)
+        var validUser = $.localStorage.get('validUser')
         $('button[type="submit"]').on('click', function (event) {
             event.preventDefault()
             if ($('#username').val() === validUser.username && $('#password').val() === validUser.password) {

@@ -24,6 +24,17 @@ class World extends tamarin.World {
     return this.driver.executeScript(() => $.localStorage.get(arguments[0]), key)
   }
 
+  setStorage (key, val) {
+    return this.driver.executeScript(() => $.localStorage.set(arguments[0], arguments[1]), key, val)
+  }
+
+  createUser () {
+    return Promise.resolve({
+      username: faker.internet.userName(),
+      password: faker.internet.password()
+    })
+  }
+
   addWidget () {
     return this.sendKeys('widgetName', faker.commerce.productName())
       .then(() => this.sendKeys('widgetDesc', faker.commerce.productAdjective() + ' ' + faker.commerce.productMaterial()))

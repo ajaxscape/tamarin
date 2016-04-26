@@ -1,6 +1,11 @@
 'use strict'
 
 module.exports = function () {
+  this.When(/^I create a valid user$/, function () {
+    return this.createUser()
+      .then((user) => this.setStorage('validUser', user))
+  })
+
   this.When(/^I am logged out$/, function () {
     return this.visit('logout')
       .then(() => this.whenPageIs('login'))
@@ -17,7 +22,8 @@ module.exports = function () {
   })
 
   this.When(/^I login as an invalid user$/, function () {
-    return this.login('baduser', 'badpass')
+    return this.createUser()
+      .then((user) => this.login(user.username, user.password))
   })
 
   this.When(/^I login and visit the (.*) page$/, function (page) {
