@@ -17,15 +17,15 @@ class World extends tamarin.World {
   }
 
   initStorage () {
-    return this.driver.executeScript(() => $.localStorage.removeAll())
+    return this.executeScript(() => $.localStorage.removeAll())
   }
 
   getStorage (key) {
-    return this.driver.executeScript(($key) => $.localStorage.get($key), key)
+    return this.executeScript(($key) => $.localStorage.get($key), key)
   }
 
   setStorage (key, val) {
-    return this.driver.executeScript(($key, $val) => $.localStorage.set($key, $val), key, val)
+    return this.executeScript(($key, $val) => $.localStorage.set($key, $val), key, val)
   }
 
   createUser () {
