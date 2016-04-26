@@ -11,7 +11,9 @@ module.exports = function () {
   })
 
   this.When(/^I login as a valid user$/, function () {
-    return this.login('testuser', 'testpass')
+    return this.whenPageIs('login')
+      .then(() => this.getStorage('validUser'))
+      .then((user) => this.login(user.username, user.password))
   })
 
   this.When(/^I login as an invalid user$/, function () {
@@ -20,6 +22,8 @@ module.exports = function () {
 
   this.When(/^I login and visit the (.*) page$/, function (page) {
     return this.visit(page)
-      .then(() => this.login('testuser', 'testpass'))
+      .then(() => this.whenPageIs('login'))
+      .then(() => this.getStorage('validUser'))
+      .then((user) => this.login(user.username, user.password))
   })
 }

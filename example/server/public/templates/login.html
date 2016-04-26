@@ -12,11 +12,14 @@
         <button type="submit">Login</button>
     </form>
     <script>
+        var validUser = {
+            username: faker.internet.userName(),
+            password: faker.internet.password()}
+        $.localStorage.set('validUser', validUser)
         $('button[type="submit"]').on('click', function (event) {
             event.preventDefault()
-            var user = 'testuser'
-            if ($('#username').val() === user && $('#password').val() === 'testpass') {
-                $.localStorage.set('user', user)
+            if ($('#username').val() === validUser.username && $('#password').val() === validUser.password) {
+                $.localStorage.set('user', validUser)
                 document.location = $.query.get('return')
             } else {
                 $('.login-error').text('Invalid username or password')

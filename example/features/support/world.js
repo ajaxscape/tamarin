@@ -17,11 +17,11 @@ class World extends tamarin.World {
   }
 
   initStorage () {
-    return this.driver.executeScript(() => {
-      (function () {
-        $.localStorage.removeAll()
-      })()
-    })
+    return this.driver.executeScript(() => $.localStorage.removeAll())
+  }
+
+  getStorage (key) {
+    return this.driver.executeScript(() => $.localStorage.get(arguments[0]), key)
   }
 
   addWidget () {
