@@ -12,4 +12,4 @@ RUN npm install && bower --allow-root install
 COPY . /usr/src/app
 
 EXPOSE 3021
-CMD [ "npm", "server" ]
+CMD [ "npm", "start" ]
