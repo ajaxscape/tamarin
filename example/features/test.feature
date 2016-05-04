@@ -20,18 +20,22 @@ Feature: Test tamarin
     When I login as a valid user
     Then I should be on the home page
 
-  Scenario: Load the Widgets page forces login, success
+  Scenario: Add 2 widgets
     Given I create a valid user
     And I login and visit the widgets page
     When I add a widget
     And  I add another widget
     Then I should have 2 widgets
 
-  Scenario: Load the Widgets page forces login, success
+  Scenario: Delete a widget
     Given I login and visit the widgets page
     Then I should have 2 widgets
     When I remove the last widget
     Then I should have 1 widget
+
+  Scenario: Delete a widget
+    Given I login and visit the last widget
+    Then I should have 2 widgets
 
 #    Then the description should eventually be "some text"
 #    Then the home menu link should have a title of home

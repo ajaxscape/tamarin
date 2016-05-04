@@ -12,4 +12,12 @@ module.exports = function () {
   this.When(/^I remove the (.*) widget$/, function (pos) {
     return this.removeWidget(pos)
   })
+
+  this.Given(/^I login and visit the last widget$/, function () {
+    return this.getStorage('widgets')
+      .then((widgets) => {
+        let widget = widgets[widgets.length - 1]
+        return this.visit('widget', [widget.id])
+      })
+  })
 }

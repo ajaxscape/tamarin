@@ -29,7 +29,10 @@ module.exports = {
     pageObject: require('./components/widgets')
   },
   widget: {
-    path: `${base_url}/widgets/:id`,
+    path: [
+      `${base_url}/trouble`,
+      `${base_url}/widgets/:id`,
+      `${base_url}/widgets/trouble`],
     pageObject: require('./components/widget')
   }
 }
