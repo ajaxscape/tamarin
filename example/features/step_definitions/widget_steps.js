@@ -19,5 +19,8 @@ module.exports = function () {
         let widget = widgets[widgets.length - 1]
         return this.visit('widget', [widget.id])
       })
+      .then(() => this.whenPageIs('login'))
+      .then(() => this.getStorage('validUser'))
+      .then((user) => this.login(user.username, user.password))
   })
 }

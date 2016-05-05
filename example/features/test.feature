@@ -35,7 +35,6 @@ Feature: Test tamarin
 
   Scenario: Delete a widget
     Given I login and visit the last widget
-    Then I should have 2 widgets
 
 #    Then the description should eventually be "some text"
 #    Then the home menu link should have a title of home
