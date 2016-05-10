@@ -1,21 +1,23 @@
 <section id="login">
-    <form>
-        <div class="field">
-            <label for="username">Username</label>
-            <input id="username" name="username" type="text" autocapitalize="off" autocorrect="off">
-        </div>
-        <div class="field">
-            <label for="password">Password</label>
-            <input id="password" name="password" type="password">
-        </div>
-        <p class="login-error error-message"></p>
-        <button type="submit">Login</button>
-    </form>
+    <div class="modal">
+        <form>
+            <div class="field">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" autocapitalize="off" autocorrect="off">
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password">
+            </div>
+            <p class="login-error error-message"></p>
+            <button type="submit">Login</button>
+        </form>
+    </div>
     <script>
-        var validUser = $.localStorage.get('validUser')
+        var validUser = $.localStorage.get('validUser') || {username: 'username', password: 'password'}
         $('button[type="submit"]').on('click', function (event) {
             event.preventDefault()
-            if (($('#username').val() === validUser.username && $('#password').val() === validUser.password) || ($('#username').val() === 'username' && $('#password').val() === 'password')) {
+            if ($('#username').val() === validUser.username && $('#password').val() === validUser.password) {
                 $.localStorage.set('user', validUser)
                 document.location = $.query.get('return')
             } else {
