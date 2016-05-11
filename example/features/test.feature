@@ -34,7 +34,7 @@ Feature: Test tamarin
     Then I should have 1 widget
 
   Scenario: Delete a widget
-    Given I login and visit the last widget
+    Given I login and visit the first widget
 
 #    Then the description should eventually be "some text"
 #    Then the home menu link should have a title of home

@@ -34,11 +34,12 @@ body {
     background: rgba(0, 0, 0, 0.8);
 }
 
-form {
+.modal form {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 9rem;
     border-radius: 1rem;
     background: lemonchiffon;
     padding: 1rem;
@@ -50,6 +51,10 @@ form .field {
 
 form .field label {
     display: block;
+}
+
+form .field input {
+    width: 100%;
 }
 
 form .error-message {

@@ -13,13 +13,9 @@ module.exports = function () {
     return this.removeWidget(pos)
   })
 
-  this.Given(/^I login and visit the last widget$/, function () {
+  this.Given(/^I login and visit the first widget$/, function () {
     return this.getStorage('widgets')
-      .then((widgets) => {
-        let widget = widgets[widgets.length - 1]
-        return this.visit('widget', [widget.id])
-      })
-      .then(() => this.whenPageIs('login'))
+      .then((widgets) => this.visit('widget', widgets[0].id))
       .then(() => this.getStorage('validUser'))
       .then((user) => this.login(user.username, user.password))
   })
