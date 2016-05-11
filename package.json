@@ -1,6 +1,6 @@
 {
   "name": "tamarin",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "Extension to cucumber.js",
   "main": "index.js",
   "repository": {

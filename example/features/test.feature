@@ -35,6 +35,7 @@ Feature: Test tamarin
 
   Scenario: Delete a widget
     Given I login and visit the first widget
+    Then I expect the first widget to be displayed correctly
 
 #    Then the description should eventually be "some text"
 #    Then the home menu link should have a title of home

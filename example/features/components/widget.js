@@ -2,5 +2,6 @@
 
 module.exports = {
   header: ['header', require('./partials/header')],
-  nameInput: '#name'
+  widgetName: '#widget_name',
+  widgetDesc: '#widget_description'
 }

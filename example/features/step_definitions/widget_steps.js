@@ -19,4 +19,12 @@ module.exports = function () {
       .then(() => this.getStorage('validUser'))
       .then((user) => this.login(user.username, user.password))
   })
+
+  this.Then(/^I expect the first widget to be displayed correctly$/, function () {
+    return this.getStorage('widgets')
+      .then((widgets) => Promise.all([
+        this.getVal('widget name').should.eventually.equal(widgets[0].name),
+        this.getVal('widget desc').should.eventually.equal(widgets[0].description)
+      ]))
+  })
 }
