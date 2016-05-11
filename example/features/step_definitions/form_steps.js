@@ -16,8 +16,7 @@ module.exports = function () {
 
   this.When(/^I click the (.*) menu link$/, function (id) {
     id = `header:menu:links:${id}`
-    return this.hover(id)
-      .then(() => this.click(id))
+    return this.click(id, 300)
   })
 
   this.When(/^I type "(.*)" into the (.*)$/, function (text, id) {

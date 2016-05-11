@@ -6,6 +6,14 @@ var faker = require('faker')
 // var tamarin = require('tamarin')
 
 class World extends tamarin.World {
+  click (id, delay) {
+    if (delay) {
+      return this.hover(id, delay)
+        .then(() => super.click(id))
+    }
+    return super.click(id)
+  }
+
   login (username, password) {
     return this.sendKeys('username', username)
       .then(() => this.sendKeys('password', password))
