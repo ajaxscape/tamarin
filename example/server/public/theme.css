@@ -45,6 +45,12 @@ body {
     padding: 1rem;
 }
 
+.modal h2 {
+    margin: 0;
+    background: #6f6eff;
+    color: #ffffff;
+}
+
 form .field {
     padding: 0.5em 0;
 }
