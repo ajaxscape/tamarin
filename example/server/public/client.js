@@ -1,16 +1,12 @@
 'use strict'
 
-// polyfill startsWith
-if (!String.prototype.startsWith) {
-  // noinspection Eslint
-  String.prototype.startsWith = function (searchString, position) {
-    position = position || 0
-    return this.substr(position, searchString.length) === searchString
-  }
-}
-
 // This has been written to simulate dynamic loading of pages
 // as a testbed for the tamarin module and has deliberate delays
+
+function startsWith (sourceString, searchString, position) {
+  position = position || 0
+  return sourceString.substr(position, searchString.length) === searchString
+}
 
 function redirectToLogin (returnPath) {
   history.replaceState({}, 'login', '/login/?return=' + returnPath)
@@ -23,7 +19,7 @@ function logout () {
 }
 
 function getView (path) {
-  if (path.startsWith('/widgets/')) {
+  if (startsWith(path, '/widgets/')) {
     var widgets = $.localStorage.get('widgets') || []
     var widgetId = path.split('/')[2]
     if (widgets.filter(function (widget) { return widget.id === widgetId }).pop()) {
@@ -42,14 +38,14 @@ function getView (path) {
   return 'errors'
 }
 
-if (location.pathname.startsWith('/logout')) {
+if (startsWith(location.pathname, '/logout')) {
   logout()
 }
 
 var user = $.localStorage.get('user')
 
-if (location.pathname.startsWith('/login') || user) {
-  if (!location.pathname.startsWith('/login')) {
+if (startsWith(location.pathname, '/login') || user) {
+  if (!startsWith(location.pathname, '/login')) {
     $('nav').addClass('logged-in')
     $('nav a')
       .on('click', function (e) {
