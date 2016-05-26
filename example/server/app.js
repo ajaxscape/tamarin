@@ -1,8 +1,8 @@
 'use strict'
 
-let express = require('express')
-let path = require('path')
-let app = express()
+const express = require('express')
+const path = require('path')
+const app = express()
 
 app.use(express.static(`${__dirname}/public`))
 
@@ -18,8 +18,8 @@ app.all('/*', function (req, res) {
   }
 })
 
-let server = app.listen(3021, function () {
-  let host = server.address().address
-  let port = server.address().port
+const server = app.listen(3021, function () {
+  const host = server.address().address
+  const port = server.address().port
   console.log(`Example app listening at http://${host}:${port}`)
 })
