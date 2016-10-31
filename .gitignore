@@ -1,14 +1,18 @@
-# Coverage directory used by tools like istanbul
-coverage
+# Logs
+logs
+*.log
+npm-debug.log*
 
 # Dependency directory
-bower_components
 node_modules
-screenshots
-npm-debug.log
-debug.log
 
+# Coverage
+coverage
+
+# Optional npm cache directory
+.npm
+
+# IntelliJ
 .idea
-# Created by .ignore support plugin (hsz.mobi)
 
-config.yml
+out

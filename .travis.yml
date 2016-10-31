@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- '6'
+script:
+- sh scripts/coverage.sh
+deploy:
+  provider: npm
+  email: ben@ajaxscape.com
+  api_key:
+    secure: O54aVu6FQVyvlI6RpaCyXO8MeQ8qjzVGP9ec2viyN489bVGt5PRf9c/4+bcU29EGLbVlsVICt1pCPwq00v7s53MVztXw+BqLY89L+EEqZRMIMfCrBEy3l8biNFl8vxdkJT8y0aepSavR01CrHig8wRHu/vB7XZhUxmwa6kvJzdmg70GO/TQd6OX/AbzYwSezyJx5p8llHZqoZU5A5O2S/cIkWARmFngiF4/eQJJT69YBE1ZQ2xSl4nql2Xe6uVZj/Gb5V16zxgDLbCwi8Pmjgq2uRpq2N6QstjB8Dw0BcQ7p/dCdG5N50pftLwrjbgaXM7/cR6jDcirXvMLhE5YopixENPLV5JcLMHv2hKZwjQwN6x0tkIQFHw4wMuHsbS7IfeXHligrf4EsNtLaX/n+5f/DPIYpAwKqiGLs14ar6KTSWRVSMG/DsKPbITtRAkTdP3SkYo3nC12lkPsFZjUBL0qfczAu7tzjxzVbEK9HXJwivMLQNOl7ImRNZpNlDTjwyHac9ZokXDYJRjYVpKiEo8i0UUZXjPLMpkGLzpDs2b2rsRz8O2zwYN2IUlogxrbkPQYFMEWPyTAutRIfgWHljvGvZJ2i5nBEm5c+JY0dApb9pc6i9DzUcqfWTchHklRr9zaFosslVbdbAsYF8Y8I/1A07A8dAuWQT8tn4fIsreQ=
+  on:
+    tags: false
+    repo: ajaxscape/tamarin

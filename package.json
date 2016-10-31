@@ -1,44 +1,57 @@
 {
   "name": "tamarin",
-  "version": "0.0.37",
-  "description": "Extension to cucumber.js",
+  "version": "1.0.0",
+  "description": "Tamarin cucumber.js world extensions",
   "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha",
+    "coverage": "node node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ajaxscape/tamarin.git"
+    "url": "git+https://github.com/ajaxscape/tamarin.git"
   },
-  "scripts": {
-    "clean": "rm -rf ./node_modules",
-    "lint": "node ./node_modules/standard/bin/cmd.js",
-    "start": "node ./example/server/app.js",
-    "test": "node ./node_modules/cucumber/bin/cucumber.js example/features"
-  },
-  "standard": {
-    "global": [
-      "$",
-      "location",
-      "history"
-    ]
-  },
+  "keywords": [
+    "tamarin",
+    "cucumber",
+    "e2e",
+    "cucumberjs",
+    "testing",
+    "world"
+  ],
   "author": "Ben Surgison",
   "license": "ISC",
-  "dependencies": {
-    "bluebird": "^3.1.2",
-    "chai": "^3.5.0",
-    "chai-as-promised": "^5.2.0",
-    "chai-things": "^0.2.0",
-    "cheerio": "^0.20.0",
-    "chromedriver": "^2.21.2",
-    "cucumber": "^0.9.4",
-    "lodash": "^3.5.0",
-    "node-glob-loader": "0.0.15",
-    "sanitize-filename": "^1.5.3",
-    "selenium-webdriver": "^2.48.2"
+  "bugs": {
+    "url": "https://github.com/ajaxscape/tamarin/issues"
   },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "expect"
+    ]
+  },
+  "homepage": "https://github.com/ajaxscape/tamarin#readme",
   "devDependencies": {
-    "bower": "^1.7.7",
-    "express": "^4.13.3",
-    "faker": "^3.1.0",
-    "standard": "^6.0.8"
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "chai-things": "^0.2.0",
+    "coveralls": "^2.11.14",
+    "istanbul": "^0.4.3",
+    "mocha": "^3.1.0",
+    "mocha-lcov-reporter": "^1.2.0",
+    "proxyquire": "^1.7.10",
+    "sinon": "^1.17.4",
+    "standard": "^8.3.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.0",
+    "lodash": "^4.13.1",
+    "phantomjs-prebuilt": "^2.1.7",
+    "selenium-webdriver": "^2.53.3"
   }
 }

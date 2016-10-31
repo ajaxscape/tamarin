@@ -1,8 +1,12 @@
 {
   "extends": "standard",
   "globals": {
-    "$": true,
-    "location": true,
-    "history": true
+    "describe": true,
+    "it": true,
+    "before": true,
+    "beforeEach": true,
+    "after": true,
+    "afterEach": true,
+    "expect": true
   }
 }
