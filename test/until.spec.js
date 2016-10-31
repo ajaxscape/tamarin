@@ -42,7 +42,7 @@ describe('until', function () {
           findElement: () => found ? Promise.resolve() : Promise.reject(),
           getTitle: () => Promise.resolve(title),
           getCurrentUrl: () => Promise.resolve(url),
-          manage: () => ({ getCookie: (cookieName) => cookie ? Promise.resolve(cookie) : Promise.reject()})
+          manage: () => ({ getCookie: (cookieName) => cookie ? Promise.resolve(cookie) : Promise.reject() })
         })
       }
     }
