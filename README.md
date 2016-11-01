@@ -10,7 +10,7 @@
 
 I had two motivations behind Tamarin.  The first was to convert the steps behind my cucumber tests from ruby to javascript _(It seems these days that the front-end javascript developers end up maintaining the ruby steps .... and they hate it!)_ and the second was to simplify those steps to only include the actual tests and not all that extra code just to make the tests work consistently.  
 
-To do this I asked myself __As a user would I ever click on an invisible link, type in a disabled field or select an item from a dynamically loaded dropdown that hadn't loaded yet?__  My answer was of course __Of course I wouldn't!__ so why do we have to write tests to make sure this doesn't happen?  What if all that extra code was abstracted away and all you had to do was implement a one-line "click" and everything else was taken care of?
+To do this I asked myself __As a user would I ever click on an invisible link, type in a disabled field or select an item from a dynamically loaded dropdown that hadn't loaded yet?__  My answer was __of course I wouldn't!__ so why do we have to write tests to make sure this doesn't happen?  What if all that extra code was abstracted away and all you had to do was implement a one-line "click" and everything else was taken care of?
 That was the idea behind Tamarin.  A little monkey behind the scenes doing all the hard work for you.
 
 As an extension to [Cucumber.js](https://www.npmjs.com/package/cucumber), __tamarin__ allows the tester/developer to concentrate on the functionality that needs to be tested rather than the boiler-plate code around it in order for the test to work.
