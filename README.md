@@ -79,25 +79,25 @@ __tamarin__ adds the following functions to the __cucumber.js__ world object:
 * waitForTitle (title) .._returns a promise resolving to true if found_
 * waitForCookie (cookieName) .._returns a promise resolving to a cookie_
 * waitForUrl () .._returns a promise resolving to the current url_
-* waitFor (selector) .._returns a promise resolving to a web element_
-* whenExists (selector) .._returns a promise resolving to a web element_
-* whenEnabled (selector) .._returns a promise resolving to a web element_
-* whenDisabled (selector) .._returns a promise resolving to a web element_
-* whenVisible (selector) .._returns a promise resolving to a web element_
-* whenHidden (selector) .._returns a promise resolving to a web element_
-* whenMatches (selector, val) .._returns a promise resolving to a web element_
-* whenContains (selector, val) .._returns a promise resolving to a web element_
-* sendKeys (selector, value) .._returns a promise resolving to a web element_
-* hover (selector, delay) .._returns a promise resolving to a web element_
-* click (selector) .._returns a promise resolving to a web element_
-* getText (selector) .._returns a promise resolving to the text within the web element_
-* getVal (selector) .._returns a promise resolving to the value of the web element_
+* waitFor (selector/web element) .._returns a promise resolving to a web element_
+* whenExists (selector/web element) .._returns a promise resolving to a web element_
+* whenEnabled (selector/web element) .._returns a promise resolving to a web element_
+* whenDisabled (selector/web element) .._returns a promise resolving to a web element_
+* whenVisible (selector/web element) .._returns a promise resolving to a web element_
+* whenHidden (selector/web element) .._returns a promise resolving to a web element_
+* whenMatches (selector/web element, val) .._returns a promise resolving to a web element_
+* whenContains (selector/web element, val) .._returns a promise resolving to a web element_
+* sendKeys (selector/web element, value) .._returns a promise resolving to a web element_
+* hover (selector/web element, delay) .._returns a promise resolving to a web element_
+* click (selector/web element) .._returns a promise resolving to a web element_
+* getText (selector/web element) .._returns a promise resolving to the text within the web element_
+* getVal (selector/web element) .._returns a promise resolving to the value of the web element_
 
 ## Install
 
 ### Node
 
-Cucumber.js is available as an npm module.
+Tamarin is available as an npm module.
 
 ``` shell
 $ npm i tamarin -D
