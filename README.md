@@ -4,6 +4,7 @@
   <a href="https://www.npmjs.com/package/tamarin"><img src="https://img.shields.io/npm/v/tamarin.svg" alt="npm version"></a>
   <a href="https://travis-ci.org/ajaxscape/tamarin"><img src="https://img.shields.io/travis/ajaxscape/tamarin/master.svg" alt="Travis"></a>
   <a href="https://coveralls.io/github/ajaxscape/tamarin"><img src="https://coveralls.io/repos/github/ajaxscape/tamarin/badge.svg" alt="Coverage"></a>
+  <a href="https://snyk.io/test/npm/tamarin"><img src="https://snyk.io/test/npm/tamarin/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/npm/tamarin" style="max-width:100%;"></a>
   <a href="https://david-dm.org/ajaxscape/tamarin"><img src="https://david-dm.org/ajaxscape/tamarin/status.svg" alt="dependencies status"></a>
   <a href="https://david-dm.org/ajaxscape/tamarin"><img src="https://david-dm.org/ajaxscape/tamarin/dev-status.svg" alt="devDependencies status"></a>
 </p>
