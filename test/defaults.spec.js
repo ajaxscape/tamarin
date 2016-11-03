@@ -1,10 +1,13 @@
 'use strict'
 
 const defaults = require('../lib/defaults')
-const expect = require('chai').expect
+const chai = require('chai')
+
+chai.should()
 
 describe('defaults', function () {
-  it('throws a driver expected error', function () {
-    expect(defaults.getDriver().to.throw(new Error('Expected a driver to be passed in the world constructor!')))
+  it('expected defaults', function () {
+    defaults.should.have.property('defaultTimeout')
+    defaults.should.have.property('defaultRetryDelay')
   })
 })

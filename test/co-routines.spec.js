@@ -10,7 +10,6 @@ const sinon = require('sinon')
 require('events').EventEmitter.defaultMaxListeners = Infinity
 
 chai
-  .use(require('chai-things'))
   .use(require('chai-as-promised'))
   .should()
 
