@@ -5,7 +5,6 @@ const _ = require('lodash')
 const chai = require('chai')
 
 chai
-  .use(require('chai-things'))
   .use(require('chai-as-promised'))
   .should()
 
@@ -34,13 +33,11 @@ describe('until', function () {
     let found
     let url
     let cookie
-    const title = 'test title'
 
     const world = {
       getDriver: function () {
         return Promise.resolve({
           findElement: () => found ? Promise.resolve() : Promise.reject(),
-          getTitle: () => Promise.resolve(title),
           getCurrentUrl: () => Promise.resolve(url),
           manage: () => ({ getCookie: (cookieName) => cookie ? Promise.resolve(cookie) : Promise.reject() })
         })

@@ -1,6 +1,6 @@
 {
   "name": "tamarin",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Tamarin cucumber.js world extensions",
   "main": "index.js",
   "scripts": {
@@ -51,7 +51,6 @@
   "dependencies": {
     "bluebird": "^3.4.0",
     "lodash": "^4.13.1",
-    "phantomjs-prebuilt": "^2.1.7",
     "selenium-webdriver": "^2.53.3"
   }
 }
