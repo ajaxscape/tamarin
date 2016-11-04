@@ -84,7 +84,8 @@ describe('co-routines', function () {
       })
 
       it('findElement as WebElement', function () {
-        return coRoutines.findElement(new WebElement()).should.eventually.deep.equal(new WebElement())
+        const element = new WebElement({ controlFlow: () => ({ promise: () => {} }) })
+        return coRoutines.findElement(element).should.eventually.deep.equal(element)
       })
 
       it('whenExists', function () {
