@@ -21,11 +21,11 @@ describe('co-routines', function () {
   })
 
   it('get must return the default timeout', function () {
-    expect(cor.get(new TamarinWorld()).getTimeout()).to.be.equal(defaults.defaultTimeout)
+    expect(cor.get(new TamarinWorld({})).getTimeout()).to.be.equal(defaults.defaultTimeout)
   })
 
   it('must have a valid timeout if entered', function () {
-    expect(() => cor.get(new TamarinWorld(), 'abc')).to.throw('Default Timeout must be a number')
+    expect(() => cor.get(new TamarinWorld({}), 'abc')).to.throw('Default Timeout must be a number')
   })
 
   describe('valid world', function () {
@@ -37,7 +37,7 @@ describe('co-routines', function () {
 
     beforeEach(function () {
       cookie = { value: 'foobar' }
-      world = new TamarinWorld()
+      world = new TamarinWorld({})
       el = {
         getOuterHtml: () => Promise.resolve(html)
       }
