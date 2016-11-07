@@ -1,3 +1,4 @@
+/* eslint-disable no-new */
 'use strict'
 
 const TamarinWorld = require('../lib/world')
@@ -15,13 +16,25 @@ const expect = chai.expect
 
 describe('world class', function () {
   const dummyDriver = {
-    findElement: () => {}
+    findElement: () => {},
+    executeScript: () => ({
+      bind: () => {}
+    })
   }
 
   it('can be instantiated', function () {
     const world = new TamarinWorld(dummyDriver)
     world.setData('foo', 'bar')
     return world.getData('foo').should.eventually.equal('bar')
+  })
+
+  it('must be instantiated with a driver', function (done) {
+    try {
+      new TamarinWorld()
+    } catch (err) {
+      err.message.should.equal('Expected a driver to be passed in the world constructor!')
+      done()
+    }
   })
 
   it('can set and retrieve a driver', function () {
@@ -211,7 +224,7 @@ describe('world class', function () {
 
     it('waitForTitle', function () {
       sinon.spy(corRoutines, 'waitForTitle')
-      return world.waitForTitle('abc')
+      return world.waitForTitle()
         .then((result) => {
           corRoutines.waitForTitle.restore()
           return result.should.equal(true)
