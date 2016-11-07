@@ -15,17 +15,24 @@ chai
 
 const expect = chai.expect
 
+const dummyDriver = {
+  findElement: () => {},
+  executeScript: () => ({
+    bind: () => {}
+  })
+}
+
 describe('co-routines', function () {
   it('must have world', function () {
     expect(cor.get).to.throw('World must be defined')
   })
 
   it('get must return the default timeout', function () {
-    expect(cor.get(new TamarinWorld()).getTimeout()).to.be.equal(defaults.defaultTimeout)
+    expect(cor.get(new TamarinWorld(dummyDriver)).getTimeout()).to.be.equal(defaults.defaultTimeout)
   })
 
   it('must have a valid timeout if entered', function () {
-    expect(() => cor.get(new TamarinWorld(), 'abc')).to.throw('Default Timeout must be a number')
+    expect(() => cor.get(new TamarinWorld(dummyDriver), 'abc')).to.throw('Default Timeout must be a number')
   })
 
   describe('valid world', function () {
@@ -37,7 +44,7 @@ describe('co-routines', function () {
 
     beforeEach(function () {
       cookie = { value: 'foobar' }
-      world = new TamarinWorld()
+      world = new TamarinWorld(dummyDriver)
       el = {
         getOuterHtml: () => Promise.resolve(html)
       }
@@ -84,7 +91,8 @@ describe('co-routines', function () {
       })
 
       it('findElement as WebElement', function () {
-        return coRoutines.findElement(new WebElement()).should.eventually.deep.equal(new WebElement())
+        const element = new WebElement({ controlFlow: () => ({ promise: () => {} }) })
+        return coRoutines.findElement(element).should.eventually.deep.equal(element)
       })
 
       it('whenExists', function () {

@@ -1,3 +1,4 @@
+/* eslint-disable no-new */
 'use strict'
 
 const TamarinWorld = require('../lib/world')
@@ -14,16 +15,29 @@ chai
 const expect = chai.expect
 
 describe('world class', function () {
+  const dummyDriver = {
+    findElement: () => {},
+    executeScript: () => ({
+      bind: () => {}
+    })
+  }
+
   it('can be instantiated', function () {
-    const world = new TamarinWorld()
+    const world = new TamarinWorld(dummyDriver)
     world.setData('foo', 'bar')
     return world.getData('foo').should.eventually.equal('bar')
   })
 
-  it('can set and retrieve a driver', function () {
-    const dummyDriver = {
-      findElement: () => {}
+  it('must be instantiated with a driver', function (done) {
+    try {
+      new TamarinWorld()
+    } catch (err) {
+      err.message.should.equal('Expected a driver to be passed in the world constructor!')
+      done()
     }
+  })
+
+  it('can set and retrieve a driver', function () {
     const world = new TamarinWorld(dummyDriver)
     return world.getDriver()
       .then((driver) => {
@@ -32,15 +46,8 @@ describe('world class', function () {
       })
   })
 
-  it('can retrieve default driver', function () {
-    new TamarinWorld().getDriver()
-      .then((driver) => {
-        _.isFunction(driver.findElement).should.equal(true)
-      })
-  })
-
   it('can retrieve the default until module', function () {
-    const world = new TamarinWorld(null)
+    const world = new TamarinWorld(dummyDriver)
     const until = world.getUntil()
     until.should.be.an('object')
     until.should.deep.equal(defaultUntil(world))
@@ -50,7 +57,7 @@ describe('world class', function () {
     const dummyUntil = {
       getId: () => 'abc'
     }
-    const world = new TamarinWorld(null, dummyUntil)
+    const world = new TamarinWorld(dummyDriver, dummyUntil)
     const until = world.getUntil()
     until.should.equal(dummyUntil)
     until.getId().should.equal('abc')
@@ -68,22 +75,22 @@ describe('world class', function () {
     }
 
     it('with additional methods', function () {
-      const world = new World()
+      const world = new World(dummyDriver)
       world.setTestVal('barfoo')
       return world.getTestVal().should.eventually.equal('barfoo')
     })
 
     it('can be extended maintaining parent methods', function () {
-      const world = new World()
+      const world = new World(dummyDriver)
       world.setData('abcdef', 'barfoo')
       return world.getData('abcdef').should.eventually.equal('barfoo')
     })
 
     it('should be context free', function () {
-      const worldA = new World()
+      const worldA = new World(dummyDriver)
       worldA.setTestVal('barfoo')
 
-      const worldB = new World()
+      const worldB = new World(dummyDriver)
       worldB.setTestVal('foobar')
 
       expect(worldA.getTestVal()).to.eventually.equal('barfoo')
@@ -118,22 +125,22 @@ describe('world class', function () {
     }
 
     it('with additional methods', function () {
-      const world = new World()
+      const world = new World(dummyDriver)
       world.setTestVal('barfoo')
       return world.getTestVal().should.eventually.equal('barfoo')
     })
 
     it('can be extended maintaining parent methods', function () {
-      const world = new World()
+      const world = new World(dummyDriver)
       world.setData('abcdef', 'barfoo')
       return world.getData('abcdef').should.eventually.equal('barfoo')
     })
 
     it('should be context free', function () {
-      const worldA = new World()
+      const worldA = new World(dummyDriver)
       worldA.setTestVal('barfoo')
 
-      const worldB = new World()
+      const worldB = new World(dummyDriver)
       worldB.setTestVal('foobar')
 
       expect(worldA.getTestVal()).to.eventually.equal('barfoo')
@@ -180,7 +187,7 @@ describe('world class', function () {
         }
       })
 
-      world = new World()
+      world = new World(dummyDriver)
 
       driver = {
         sleep: () => Promise.resolve(),
@@ -217,7 +224,7 @@ describe('world class', function () {
 
     it('waitForTitle', function () {
       sinon.spy(corRoutines, 'waitForTitle')
-      return world.waitForTitle('abc')
+      return world.waitForTitle()
         .then((result) => {
           corRoutines.waitForTitle.restore()
           return result.should.equal(true)
