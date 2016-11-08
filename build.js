@@ -27,11 +27,11 @@ function generate (dir, node) {
       console.log(`saving ${filename}`)
       fs.writeFileSync(filename, node[id])
     } else {
-      dir += `/${id}`
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir)
+      const subDir = `${dir}/${id}`
+      if (!fs.existsSync(subDir)) {
+        fs.mkdirSync(subDir)
       }
-      generate(dir, node[id])
+      generate(subDir, node[id])
     }
   })
 }
