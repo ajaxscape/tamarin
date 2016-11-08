@@ -20,7 +20,6 @@ const structure = {
 
 function generate (dir, node) {
   const keys = Object.keys(node)
-  console.log(keys)
   keys.forEach((id) => {
     console.log(`Processing: ${id}`)
     if (_.isString(node[id])) {
