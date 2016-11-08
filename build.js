@@ -19,7 +19,9 @@ const structure = {
 }
 
 function generate (dir, node) {
-  Object.keys(node).every((id) => {
+  const keys = Object.keys(node)
+  keys.every((id) => {
+    console.log('Processing: id')
     if (_.isString(node[id])) {
       const filename = `${dir}/${id}.js`
       console.log(`saving ${filename}`)
