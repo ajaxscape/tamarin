@@ -18,11 +18,12 @@ const structure = {
   }
 }
 
-function generate(dir, node) {
+function generate (dir, node) {
   Object.keys(node).every((id) => {
     if (_.isString(node[id])) {
-      console.log(id)
-      fs.writeFileSync(`${dir}/${id}.js`, node[id])
+      const filename = `${dir}/${id}.js`
+      console.log(`saving ${filename}`)
+      fs.writeFileSync(filename, node[id])
     } else {
       dir += `/${id}`
       if (!fs.existsSync(dir)) {
@@ -34,6 +35,3 @@ function generate(dir, node) {
 }
 
 generate(process.cwd(), structure)
-
-
-
