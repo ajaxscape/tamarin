@@ -6,15 +6,15 @@ const _ = require('lodash')
 const structure = {
   features: {
     support: {
-      driver: 'my driver',
-      env: 'my env',
-      hook: 'my hook',
-      world: 'my world'
+      'driver.js': 'my driver',
+      'env.js': 'my env',
+      'hook.js': 'my hook',
+      'world.js': 'my world'
     },
     step_definitions: {
-      example_steps: ''
+      'example_steps.js': 'example steps'
     },
-    example_feature: ''
+    'example.feature': 'example feature'
   }
 }
 
@@ -23,7 +23,7 @@ function generate (dir, node) {
   keys.forEach((id) => {
     console.log(`Processing: ${id}`)
     if (_.isString(node[id])) {
-      const filename = `${dir}/${id}.js`
+      const filename = `${dir}/${id}`
       console.log(`saving ${filename}`)
       fs.writeFileSync(filename, node[id])
     } else {
