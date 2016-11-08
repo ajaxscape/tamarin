@@ -2,6 +2,7 @@
 
 const fs = require('fs')
 const _ = require('lodash')
+const exec = require('child_process').exec
 
 const driver = `
 'use strict'
@@ -153,3 +154,15 @@ function generate (dir, node) {
 }
 
 generate(process.cwd(), structure)
+
+const modules = [
+  'tamarin',
+  'cucumber',
+  'chai',
+  'chai-with-promises',
+  'chromedriver'
+]
+modules.forEach((module) =>
+  exec(`npm install ${module}`).stderr.pipe(process.stderr)
+)
+
