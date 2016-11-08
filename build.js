@@ -159,7 +159,7 @@ const modules = [
   'tamarin',
   'cucumber',
   'chai',
-  'chai-with-promises',
+  'chai-as-promised',
   'chromedriver'
 ]
 modules.forEach((module) =>
