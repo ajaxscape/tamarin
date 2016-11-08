@@ -1,4 +1,39 @@
 #!/usr/bin/env node
-const x = 7
-const y = x + 1
-console.log(y)
+
+const fs = require('fs')
+const _ = require('lodash')
+
+const structure = {
+  features: {
+    support: {
+      driver: 'my driver',
+      env: 'my env',
+      hook: 'my hook',
+      world: 'my world'
+    },
+    step_definitions: {
+      example_steps: ''
+    },
+    example_feature: ''
+  }
+}
+
+function generate(dir, node) {
+  Object.keys(node).every((id) => {
+    if (_.isString(node[id])) {
+      console.log(id)
+      fs.writeFileSync(`${dir}/${id}.js`, node[id])
+    } else {
+      dir += `/${id}`
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir)
+      }
+      generate(dir, node[id])
+    }
+  })
+}
+
+generate(process.cwd(), structure)
+
+
+
