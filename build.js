@@ -162,7 +162,9 @@ const modules = [
   'chai-as-promised',
   'chromedriver'
 ]
-modules.forEach((module) =>
-  exec(`npm install ${module}`).stderr.pipe(process.stderr)
-)
+modules.forEach((module) => {
+  const command = `npm install ${module}`
+  console.log(command)
+  exec(command).stderr.pipe(process.stderr)
+})
 
