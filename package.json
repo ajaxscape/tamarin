@@ -3,7 +3,7 @@
   "version": "1.0.14",
   "description": "Tamarin cucumber.js world extensions",
   "main": "index.js",
-  "bin": "./build.js",
+  "bin": "./bin/tamarin.js",
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha",
     "coverage": "node node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000"
