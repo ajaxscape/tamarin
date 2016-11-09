@@ -61,6 +61,7 @@
   "dependencies": {
     "bluebird": "^3.4.0",
     "cli-spinner": "^0.2.5",
+    "commander": "^2.9.0",
     "lodash": "^4.13.1",
     "selenium-webdriver": "^3.0.0"
   }
