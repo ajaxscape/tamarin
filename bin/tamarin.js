@@ -23,5 +23,9 @@ if (program.build) {
 }
 
 if (program.test) {
-  exec(`${process.cwd()}/node_modules/cucumber/bin/cucumber.js`).stdout.pipe(process.stdout)
+  const command = `${process.cwd()}/node_modules/cucumber/bin/cucumber.js`
+  console.log(command)
+  exec(command).stdout.pipe(process.stdout)
 }
+
+if (!program.args.length) program.help()

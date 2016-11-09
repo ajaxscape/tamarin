@@ -145,19 +145,7 @@ function generate (dir, node) {
 function installDependencies (modules) {
   const command = `npm install ${modules.join(' ')} -D`
   console.log(command)
-
-  const spinner = new Spinner('processing.. %s')
-  spinner.setSpinnerString('|/-\\')
-  spinner.start()
-
-  exec(command, function (error, stdout, stderr) {
-    spinner.stop()
-    console.info('stdout: ' + stdout)
-    console.warn('stderr: ' + stderr)
-    if (error !== null) {
-      console.error('exec error: ' + error)
-    }
-  })
+  exec(command).stdout.pipe(process.stdout)
 }
 
 module.exports = function () {
