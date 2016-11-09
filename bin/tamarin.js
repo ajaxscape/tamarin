@@ -9,14 +9,15 @@ const exec = require('child_process').exec
 const program = require('commander')
 
 const packageFile = fs.readFileSync(`${process.cwd()}/package.json`, 'utf8')
-const json = JSON.parse(packageFile)
-const version = json.version
 
-program
-  .version(version)
+program.version(JSON.parse(packageFile).version)
   .option('-b, --build', 'Build example features')
-  .option('-t, --test', 'Start test')
+  .option('-t, --test', 'Start test', /^([^"]*)$/)
   .parse(process.argv)
+
+if (process.argv.length < 3) {
+  program.help()
+}
 
 if (program.build) {
   require('./build')()
@@ -27,5 +28,3 @@ if (program.test) {
   console.log(command)
   exec(command).stdout.pipe(process.stdout)
 }
-
-if (!program.args.length) program.help()
