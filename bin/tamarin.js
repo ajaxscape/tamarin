@@ -2,6 +2,7 @@
 
 const fs = require('fs')
 const _ = require('lodash')
+const Spinner = require('cli-spinner').Spinner
 const exec = require('child_process').exec
 
 const driver = `
@@ -164,11 +165,18 @@ const modules = [
 ]
 
 const command = `npm install ${modules.join(' ')} -D`
-exec(command, function(error, stdout, stderr) {
-  console.log('stdout: ' + stdout)
-  console.log('stderr: ' + stderr)
+console.log(command)
+
+const spinner = new Spinner('processing.. %s')
+spinner.setSpinnerString('|/-\\')
+spinner.start()
+
+exec(command, function (error, stdout, stderr) {
+  spinner.stop()
+  console.info('stdout: ' + stdout)
+  console.warn('stderr: ' + stderr)
   if (error !== null) {
-    console.log('exec error: ' + error)
+    console.error('exec error: ' + error)
   }
 })
 
