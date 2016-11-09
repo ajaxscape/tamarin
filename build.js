@@ -165,5 +165,5 @@ const modules = [
 
 const command = `npm install ${modules.join(' ')} -D`
 console.log(command)
-exec(command).stderr.pipe(process.stderr)
+exec(command).stderr.pipe(console.log)
 
