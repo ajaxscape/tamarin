@@ -139,7 +139,6 @@ const structure = {
 function generate (dir, node) {
   const keys = Object.keys(node)
   keys.forEach((id) => {
-    console.log(`Processing: ${id}`)
     if (_.isString(node[id])) {
       const filename = `${dir}/${id}`
       console.log(`saving ${filename}`)
