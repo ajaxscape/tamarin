@@ -5,8 +5,8 @@
  */
 
 const fs = require('fs')
+const exec = require('child_process').exec
 const program = require('commander')
-const build = require('./build')
 
 const packageFile = fs.readFileSync(`${process.cwd()}/package.json`, 'utf8')
 const json = JSON.parse(packageFile)
@@ -19,9 +19,9 @@ program
   .parse(process.argv)
 
 if (program.build) {
-  build()
+  require('./build')()
 }
 
 if (program.test) {
-  console.log('test')
+  exec(`${process.cwd()}/node_modules/cucumber/bin/cucumber.js`).stdout.pipe(process.stdout)
 }

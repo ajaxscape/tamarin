@@ -3,6 +3,7 @@ const _ = require('lodash')
 const Spinner = require('cli-spinner').Spinner
 const exec = require('child_process').exec
 
+/* ========================================= features/support/driver.js ============================================ */
 const driver = `
 'use strict'
 
@@ -18,6 +19,7 @@ const driver = new webDriver.Builder()
 module.exports = driver
 `
 
+/* ========================================= features/support/env.js =============================================== */
 const env = `
 'use strict'
 
@@ -32,6 +34,7 @@ var configure = function () {
 module.exports = configure
 `
 
+/* ========================================== features/support/hook.js ============================================= */
 const hook = `
 'use strict'
 
@@ -46,6 +49,7 @@ module.exports = function () {
 }
 `
 
+/* ======================================== features/support/world.js ============================================== */
 const world = `'use strict'
 
 const driver = require('./driver')
@@ -60,6 +64,7 @@ module.exports = {
 }
 `
 
+/* ============================================ features/main.feature ============================================== */
 const feature = `
 Feature: Do a Google Search
   Using a web browser
@@ -73,6 +78,7 @@ Feature: Do a Google Search
     Then I expect to see some "Image" results
 `
 
+/* ==================================== features/step_definitions/steps.js ========================================= */
 const steps = `
 'use strict'
 
@@ -119,21 +125,6 @@ module.exports = function () {
 }
 `
 
-const structure = {
-  features: {
-    support: {
-      'driver.js': driver,
-      'env.js': env,
-      'hook.js': hook,
-      'world.js': world
-    },
-    step_definitions: {
-      'steps.js': steps
-    },
-    'main.feature': feature
-  }
-}
-
 function generate (dir, node) {
   const keys = Object.keys(node)
   keys.forEach((id) => {
@@ -151,17 +142,7 @@ function generate (dir, node) {
   })
 }
 
-generate(process.cwd(), structure)
-
-const modules = [
-  'tamarin',
-  'cucumber',
-  'chai',
-  'chai-as-promised',
-  'chromedriver'
-]
-
-module.exports = function () {
+function installDependencies (modules) {
   const command = `npm install ${modules.join(' ')} -D`
   console.log(command)
 
@@ -177,5 +158,30 @@ module.exports = function () {
       console.error('exec error: ' + error)
     }
   })
+}
+
+module.exports = function () {
+  generate(process.cwd(), {
+    features: {
+      support: {
+        'driver.js': driver,
+        'env.js': env,
+        'hook.js': hook,
+        'world.js': world
+      },
+      step_definitions: {
+        'steps.js': steps
+      },
+      'main.feature': feature
+    }
+  })
+
+  installDependencies([
+    'tamarin',
+    'cucumber',
+    'chai',
+    'chai-as-promised',
+    'chromedriver'
+  ])
 }
 
