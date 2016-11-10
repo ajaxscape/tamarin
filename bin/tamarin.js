@@ -42,5 +42,7 @@ if (program.build) {
 if (program.test) {
   const command = findInParent(process.cwd(), 'package.json').split('/').map((item) => (item === 'package.json' ? 'node_modules/cucumber/bin/cucumber.js' : item)).join('/')
   console.log(command)
-  exec(command).stdout.pipe(process.stdout)
+  const stream = exec(command)
+  stream.stdout.pipe(process.stdout)
+  stream.stderr.pipe(process.stderr)
 }
