@@ -149,7 +149,7 @@ function installDependencies (modules) {
   console.log('This could take some time...')
   spinner.setSpinnerString('|/-\\')
   spinner.start()
-  setTimeout(() => spinner.stop(), 5000)
+  setTimeout(() => spinner.stop(), 10000)
   exec(command).stdout.pipe(process.stdout)
 }
 
