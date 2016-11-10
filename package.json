@@ -1,8 +1,9 @@
 {
   "name": "tamarin",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Tamarin cucumber.js world extensions",
   "main": "index.js",
+  "bin": "./bin/tamarin.js",
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha",
     "coverage": "node node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000"
@@ -14,6 +15,15 @@
   "keywords": [
     "tamarin",
     "cucumber",
+    "bdd",
+    "integration",
+    "tests",
+    "behaviour",
+    "driven",
+    "selenium",
+    "webdriver",
+    "webelement",
+    "driver",
     "e2e",
     "cucumberjs",
     "testing",
@@ -50,6 +60,8 @@
   },
   "dependencies": {
     "bluebird": "^3.4.0",
+    "cli-spinner": "^0.2.5",
+    "commander": "^2.9.0",
     "lodash": "^4.13.1",
     "selenium-webdriver": "^3.0.0"
   }
