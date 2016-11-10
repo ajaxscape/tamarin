@@ -150,7 +150,9 @@ function installDependencies (modules) {
   spinner.setSpinnerString('|/-\\')
   spinner.start()
   setTimeout(() => spinner.stop(), 10000)
-  exec(command).stdout.pipe(process.stdout)
+  const stream = exec(command)
+  stream.stdout.pipe(process.stdout)
+  stream.stderr.pipe(process.stderr)
 }
 
 module.exports = function () {
