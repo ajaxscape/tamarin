@@ -96,10 +96,28 @@ __tamarin__ adds the following functions to the __cucumber.js__ world object:
 
 ## Install
 
-### Node
+### As a dependency
 
 Tamarin is available as an npm module.
 
 ``` shell
 $ npm i tamarin -D
+```
+
+Tamarin can also be installed globally as a cli
+
+``` shell
+$ npm i tamarin -g
+```
+
+When installed globally, the following is available:
+``` shell
+  Usage: tamarin [options]
+
+  Options:
+
+    -h, --help     output usage information
+    -V, --version  output the version number
+    -b, --build    Build example features
+    -t, --test     Start test
 ```
