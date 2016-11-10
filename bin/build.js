@@ -149,6 +149,7 @@ function installDependencies (modules) {
   spinner.setSpinnerString('|/-\\')
   spinner.start()
   exec(command).stdout.pipe(process.stdout)
+  spinner.stop()
 }
 
 module.exports = function () {
