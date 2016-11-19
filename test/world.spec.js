@@ -16,9 +16,11 @@ const expect = chai.expect
 
 describe('world class', function () {
   const dummyDriver = {
-    findElement: () => {},
+    findElement: () => {
+    },
     executeScript: () => ({
-      bind: () => {}
+      bind: () => {
+      }
     })
   }
 
@@ -65,11 +67,11 @@ describe('world class', function () {
 
   describe('can be extended', function () {
     class World extends TamarinWorld {
-      setTestVal (val) {
+      setTestVal(val) {
         this.setData('test', val)
       }
 
-      getTestVal () {
+      getTestVal() {
         return this.getData('test')
       }
     }
@@ -101,25 +103,23 @@ describe('world class', function () {
   describe('can be extended with use', function () {
     const MyWorld = (World) => (() => {
       class ExtendedWorld extends World {
-        setTestVal (val) {
-          this.setData('test', val)
+        setBlahVal(val) {
+          this.setData('blah', val)
         }
 
-        getTestVal () {
-          return this.getData('test')
+        getBlahVal() {
+          return this.getData('blah')
         }
       }
       return ExtendedWorld
     })()
 
-    TamarinWorld.use(MyWorld)
-
-    class World extends TamarinWorld {
-      setTestVal (val) {
+    class World extends TamarinWorld.use(MyWorld) {
+      setTestVal(val) {
         this.setData('test', val)
       }
 
-      getTestVal () {
+      getTestVal() {
         return this.getData('test')
       }
     }
@@ -139,12 +139,16 @@ describe('world class', function () {
     it('should be context free', function () {
       const worldA = new World(dummyDriver)
       worldA.setTestVal('barfoo')
+      worldA.setBlahVal('barfooblah')
 
       const worldB = new World(dummyDriver)
       worldB.setTestVal('foobar')
+      worldB.setBlahVal('foobarblah')
 
       expect(worldA.getTestVal()).to.eventually.equal('barfoo')
       expect(worldB.getTestVal()).to.eventually.equal('foobar')
+      expect(worldA.getBlahVal()).to.eventually.equal('barfooblah')
+      expect(worldB.getBlahVal()).to.eventually.equal('foobarblah')
     })
   })
 
@@ -152,7 +156,8 @@ describe('world class', function () {
     let World, world, driver, el, cookie, corRoutines
 
     beforeEach(function () {
-      sinon.stub(console, 'error').returns(() => {})
+      sinon.stub(console, 'error').returns(() => {
+      })
       el = {
         sendKeys: () => Promise.resolve(el),
         hover: () => Promise.resolve(el),
