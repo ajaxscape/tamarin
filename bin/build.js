@@ -108,7 +108,7 @@ module.exports = function () {
   this.Then(/^I expect the url to contain "([^"]*)"$/, function (partial) {
     return this.waitForUrl().should.eventually.contain(partial)
   })
-  
+
   this.When(/^I search for "([^"]*)"$/, function enterSearchTermStep (searchTerm) {
     return this.setData('searchTerm', searchTerm)
       .then(() => this.sendKeys(page.search, searchTerm + '\\n'))
