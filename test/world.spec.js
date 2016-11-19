@@ -67,11 +67,11 @@ describe('world class', function () {
 
   describe('can be extended', function () {
     class World extends TamarinWorld {
-      setTestVal(val) {
+      setTestVal (val) {
         this.setData('test', val)
       }
 
-      getTestVal() {
+      getTestVal () {
         return this.getData('test')
       }
     }
@@ -103,11 +103,11 @@ describe('world class', function () {
   describe('can be extended with use', function () {
     const MyWorld = (World) => (() => {
       class ExtendedWorld extends World {
-        setBlahVal(val) {
+        setBlahVal (val) {
           this.setData('blah', val)
         }
 
-        getBlahVal() {
+        getBlahVal () {
           return this.getData('blah')
         }
       }
@@ -115,11 +115,11 @@ describe('world class', function () {
     })()
 
     class World extends TamarinWorld.use(MyWorld) {
-      setTestVal(val) {
+      setTestVal (val) {
         this.setData('test', val)
       }
 
-      getTestVal() {
+      getTestVal () {
         return this.getData('test')
       }
     }
@@ -433,4 +433,3 @@ describe('world class', function () {
     })
   })
 })
-
