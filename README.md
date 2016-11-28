@@ -1,6 +1,11 @@
+
+<p style="float:left; padding-right: 27px">
+    <img src="https://raw.githubusercontent.com/ajaxscape/tamarin/master/tamarin.png" width="256px">
+</p>
+
 #tamarin
 
-<p align="left">
+<p align="left" style="max-width: 850px">
   <a href="https://www.npmjs.com/package/tamarin"><img src="https://img.shields.io/npm/v/tamarin.svg" alt="npm version"></a>
   <a href="https://travis-ci.org/ajaxscape/tamarin"><img src="https://img.shields.io/travis/ajaxscape/tamarin/master.svg" alt="Travis"></a>
   <a href="https://www.bithound.io/github/ajaxscape/tamarin"><img src="https://www.bithound.io/github/ajaxscape/tamarin/badges/code.svg" alt="bitHound Code"></a>

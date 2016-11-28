@@ -1,6 +1,6 @@
 {
   "name": "tamarin",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "Tamarin cucumber.js world extensions",
   "main": "index.js",
   "bin": "./bin/tamarin.js",
