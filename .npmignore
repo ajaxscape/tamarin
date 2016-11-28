@@ -28,5 +28,6 @@ node_modules
 .bithoundrc
 
 npm-debug.log
+tamarin.png
 
 esdoc
