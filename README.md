@@ -9,9 +9,7 @@
   <a href="https://www.bithound.io/github/ajaxscape/tamarin"><img src="https://www.bithound.io/github/ajaxscape/tamarin/badges/score.svg" alt="bitHound Overall Score"></a>
   <a href="https://coveralls.io/github/ajaxscape/tamarin"><img src="https://coveralls.io/repos/github/ajaxscape/tamarin/badge.svg" alt="Coverage"></a>
   <a href="https://snyk.io/test/npm/tamarin"><img src="https://snyk.io/test/npm/tamarin/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/npm/tamarin" style="max-width:100%;"></a>
-  <a href="https://david-dm.org/ajaxscape/tamarin"><img src="https://david-dm.org/ajaxscape/tamarin/status.svg" alt="dependencies status"></a>
   <a href="https://www.bithound.io/github/ajaxscape/tamarin/master/dependencies/npm"><img src="https://www.bithound.io/github/ajaxscape/tamarin/badges/dependencies.svg" alt="bitHound Dependencies"></a>
-  <a href="https://david-dm.org/ajaxscape/tamarin"><img src="https://david-dm.org/ajaxscape/tamarin/dev-status.svg" alt="devDependencies status"></a>
   <a href="https://www.bithound.io/github/ajaxscape/tamarin/master/dependencies/npm"><img src="https://www.bithound.io/github/ajaxscape/tamarin/badges/devDependencies.svg" alt="bitHound Dev Dependencies"></a>
 </p>
 
