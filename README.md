@@ -1,5 +1,7 @@
 
-<img src="https://raw.githubusercontent.com/ajaxscape/tamarin/master/tamarin.png" width="256px" style="float:left">
+<span style="float:left; padding-right: 27px">
+    <img src="https://raw.githubusercontent.com/ajaxscape/tamarin/master/tamarin.png" width="256px">
+</span>
 
 #tamarin
 
