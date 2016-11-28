@@ -25,7 +25,9 @@ scripts
 # Node Modules
 node_modules
 .npmignore
+.bithoundrc
 
 npm-debug.log
+tamarin.png
 
 esdoc
