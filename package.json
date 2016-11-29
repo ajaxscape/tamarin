@@ -1,6 +1,6 @@
 {
   "name": "tamarin",
-  "version": "1.0.21",
+  "version": "1.0.23",
   "description": "Tamarin cucumber.js world extensions",
   "main": "index.js",
   "bin": "./bin/tamarin.js",
@@ -49,20 +49,19 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
-    "chai-things": "^0.2.0",
     "coveralls": "^2.11.14",
-    "istanbul": "^0.4.3",
-    "mocha": "^3.1.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
     "mocha-lcov-reporter": "^1.2.0",
     "proxyquire": "^1.7.10",
-    "sinon": "^1.17.4",
-    "standard": "^8.3.0"
+    "sinon": "^1.17.6",
+    "standard": "^8.6.0"
   },
   "dependencies": {
-    "bluebird": "^3.4.0",
+    "bluebird": "^3.4.6",
     "cli-spinner": "^0.2.5",
     "commander": "^2.9.0",
-    "lodash": "^4.13.1",
-    "selenium-webdriver": "^3.0.0"
+    "lodash": "^4.17.2",
+    "selenium-webdriver": "^3.0.1"
   }
 }

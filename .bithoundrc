@@ -2,5 +2,8 @@
   "ignore": [
     "**/node_modules/**",
     "**/test/**"
-  ]
+  ],
+  "critics": {
+    "wc": { "limit": 10000 }
+  }
 }
