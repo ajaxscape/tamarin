@@ -172,10 +172,11 @@ module.exports = function () {
   })
 
   installDependencies([
-    'tamarin@1.0.23',
+    'tamarin',
     'cucumber@1.3.1',
     'chai@3.5.0',
     'chai-as-promised@6.0.0',
-    'chromedriver@2.21.2'
+    'chromedriver@2.21.2',
+    'selenium-webdriver@3.0.1'
   ])
 }
