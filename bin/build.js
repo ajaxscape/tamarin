@@ -89,19 +89,19 @@ const page = {
 }
 
 module.exports = function () {
-  this.Given(/^I visit (https?:\\/\\/.*\\..*)$/, function visitStep (url) {
+  this.Given(/^I visit (https?:\\/\\/.*\\..*)$/, function (url) {
     return this.visit(url)
   })
 
-  this.Then(/^I expect the title to be "([^"]*)"$/, function waitForTitleStep (title) {
+  this.Then(/^I expect the title to be "([^"]*)"$/, function (title) {
     return this.waitForTitle(title)
   })
 
-  this.Then(/^I expect the "([^"]*)" cookie to exist$/, function waitForTitleStep (name) {
+  this.Then(/^I expect the "([^"]*)" cookie to exist$/, function (name) {
     return this.waitForCookie(name)
   })
 
-  this.Then(/^I expect the "([^"]*)" cookie to be "([^"]*)"$/, function waitForTitleStep (name, expectedValue) {
+  this.Then(/^I expect the "([^"]*)" cookie to be "([^"]*)"$/, function (name, expectedValue) {
     return this.waitForCookie(name).should.eventually.have.property('value', expectedValue)
   })
 
@@ -109,16 +109,16 @@ module.exports = function () {
     return this.waitForUrl().should.eventually.contain(partial)
   })
 
-  this.When(/^I search for "([^"]*)"$/, function enterSearchTermStep (searchTerm) {
+  this.When(/^I search for "([^"]*)"$/, function (searchTerm) {
     return this.setData('searchTerm', searchTerm)
       .then(() => this.sendKeys(page.search, searchTerm + '\\n'))
   })
 
-  this.When(/^I click the "([^"]*)" menu link$/, function clickMenuLinkStep (linkText) {
+  this.When(/^I click the "([^"]*)" menu link$/, function (linkText) {
     return this.click(page.navLink(linkText))
   })
 
-  this.Then(/^I expect to see some "([^"]*)" results$/, function waitForResultsStep (type) {
+  this.Then(/^I expect to see some "([^"]*)" results$/, function (type) {
     return this.getData('searchTerm')
       .then((searchTerm) => this.waitFor(page.results(type, searchTerm)))
   })
