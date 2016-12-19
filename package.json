@@ -1,6 +1,6 @@
 {
   "name": "tamarin",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "Tamarin: extendable asynchronous wrapper around selenium-webdriver",
   "main": "index.js",
   "bin": "./bin/tamarin.js",
