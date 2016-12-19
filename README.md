@@ -13,70 +13,89 @@
   <a href="https://www.bithound.io/github/ajaxscape/tamarin/master/dependencies/npm"><img src="https://www.bithound.io/github/ajaxscape/tamarin/badges/devDependencies.svg" alt="bitHound Dev Dependencies"></a>
 </p>
 
-I had two motivations behind Tamarin.  The first was to convert the steps behind my cucumber tests from ruby to javascript _(It seems these days that the front-end javascript developers end up maintaining the ruby steps .... and they hate it!)_ and the second was to simplify those steps to only include the actual tests and not all that extra code just to make the tests work consistently.  
+__Tamarin__ allows the tester/developer to concentrate on the functionality that needs to be tested rather than the boiler-plate code around it in order for the test to work.
 
-To do this I asked myself __As a user would I ever click on an invisible link, type in a disabled field or select an item from a dynamically loaded dropdown that hadn't loaded yet?__  My answer was __of course I wouldn't!__ so why do we have to write tests to make sure this doesn't happen?  What if all that extra code was abstracted away and all you had to do was implement a one-line "click" and everything else was taken care of?
-That was the idea behind Tamarin.  A little monkey behind the scenes doing all the hard work for you.
+I have often asked myself __As a user would I ever click on an invisible link, type in a disabled field or select an item from a dynamically loaded dropdown that hadn't loaded yet?__  My answer was __of course I wouldn't!__ so why do we have to write tests to make sure this doesn't happen?  What if all that extra code was abstracted away and all you had to do was implement a one-line "click" and everything else was taken care of?
 
-As an extension to [Cucumber.js](https://www.npmjs.com/package/cucumber), __tamarin__ allows the tester/developer to concentrate on the functionality that needs to be tested rather than the boiler-plate code around it in order for the test to work.
+Note the following files taken from the example project: [tamarin-vanilla-example](https://github.com/ajaxscape/tamarin-vanilla-example).
 
-An example of how to use __tamarin__ can be found in the project [tamarin-example](https://github.com/ajaxscape/tamarin-example).
 
-Note the following feature file taken from the example:
-
-```gherkin
-Feature: Do a Google Search
-  Using a web browser
-  I want to perform a Google search
-
-  Scenario: Google Search
-    Given I visit http://google.com
-    Then I expect the title to be "Google"
-    When I search for "Tamarin"
-    When I click the "Images" menu link
-    Then I expect to see some "Image" results
+__index.js__
+```javascript
+const googleSearch = require('./google_search')
+googleSearch.test()
+    .then(() => {
+      console.log('Google search completed successfully')
+      googleSearch.quit()
+    })
+    .catch((err) => {
+      console.error('Google search failed')
+      googleSearch.quit()
+      throw err
+    })
 ```
 
-The corresponding step definitions file is as follows:
-
+__google_search.js__
 ```javascript
-'use strict'
+const World = require('./world').World
+const world = new World()
 
 const page = {
   'search': { css: '[title="Search"]' },
-  'navLink': (linkText) => ({ xpath: `//*[@role="navigation"]//a[text()="${linkText}"]` }),
-  'results': (type, searchTerm) => ({ css: `img[alt="${type} result for ${searchTerm}"]` })
+  'navLink': { xpath: '//*[@role="navigation"]//a[text()="Images"]' },
+  'results': { css: 'img[alt="Image result for Tamarin"]' }
 }
 
+module.exports = {
+  quit: () => world.quit(),
+  test: () => world.visit('http://google.com')
+    .then(() => world.waitForTitle('Google'))
+    .then(() => world.sendKeys(page.search, 'Tamarin' + '\n'))
+    .then(() => world.click(page.navLink))
+    .then(() => world.waitFor(page.results))
+}
+```
+
+__world.js__
+```javascript
+'use strict'
+
+const driver = require('./driver')
+const tamarin = require('tamarin')
+
+module.exports = {
+  World: class extends tamarin {
+    constructor () {
+      super(driver())
+    }
+    quit () {
+      return this.getDriver()
+        .then((driver) => driver.quit())
+    }
+  }
+}
+```
+
+__driver.js__
+```javascript
+'use strict'
+
+const webDriver = require('selenium-webdriver')
+const chrome = require('selenium-webdriver/chrome')
+const service = new chrome.ServiceBuilder(require('chromedriver').path).build()
+chrome.setDefaultService(service)
+
 module.exports = function () {
-  this.Given(/^I visit (https?:\/\/.*\..*)$/, function visitStep (url) {
-    return this.visit(url)
-  })
-
-  this.Then(/^I expect the title to be "([^"]*)"$/, function waitForTitleStep (title) {
-    return this.waitForTitle(title)
-  })
-  
-  this.When(/^I search for "([^"]*)"$/, function enterSearchTermStep (searchTerm) {
-    return this.setData('searchTerm', searchTerm)
-      .then(() => this.sendKeys(page.search, searchTerm + '\n'))
-  })
-
-  this.When(/^I click the "([^"]*)" menu link$/, function clickMenuLinkStep (linkText) {
-    return this.click(page.navLink(linkText))
-  })
-
-  this.Then(/^I expect to see some "([^"]*)" results$/, function waitForResultsStep (type) {
-    return this.getData('searchTerm')
-      .then((searchTerm) => this.waitFor(page.results(type, searchTerm)))
-  })
+  return new webDriver.Builder()
+    .withCapabilities(webDriver.Capabilities.chrome())
+    .build()
 }
 ```
 
 Under the hood, __tamarin__ waits until an element exists, is visible and enabled prior to performing such actions such as clicking a button or keying text into an input field.
 
 ## API
-__tamarin__ adds the following functions to the __cucumber.js__ world object:
+__tamarin__ contains the following functions within the tamarin world object:
 * setData (key, val)
 * getData (key) .. _returns a promise resolving to the val of the key value pair_
 * sleep (delay) .. _returns a promise_
@@ -84,19 +103,19 @@ __tamarin__ adds the following functions to the __cucumber.js__ world object:
 * waitForTitle (title) .._returns a promise resolving to true if found_
 * waitForCookie (cookieName) .._returns a promise resolving to a cookie_
 * waitForUrl () .._returns a promise resolving to the current url_
-* waitFor (selector/web element) .._returns a promise resolving to a web element_
-* whenExists (selector/web element) .._returns a promise resolving to a web element_
-* whenEnabled (selector/web element) .._returns a promise resolving to a web element_
-* whenDisabled (selector/web element) .._returns a promise resolving to a web element_
-* whenVisible (selector/web element) .._returns a promise resolving to a web element_
-* whenHidden (selector/web element) .._returns a promise resolving to a web element_
-* whenMatches (selector/web element, val) .._returns a promise resolving to a web element_
-* whenContains (selector/web element, val) .._returns a promise resolving to a web element_
-* sendKeys (selector/web element, value) .._returns a promise resolving to a web element_
-* hover (selector/web element, delay) .._returns a promise resolving to a web element_
-* click (selector/web element) .._returns a promise resolving to a web element_
-* getText (selector/web element) .._returns a promise resolving to the text within the web element_
-* getVal (selector/web element) .._returns a promise resolving to the value of the web element_
+* waitFor (selenium_selector) .._returns a promise resolving to a web element_
+* whenExists (selenium_selector) .._returns a promise resolving to a web element_
+* whenEnabled (selenium_selector) .._returns a promise resolving to a web element_
+* whenDisabled (selenium_selector) .._returns a promise resolving to a web element_
+* whenVisible (selenium_selector) .._returns a promise resolving to a web element_
+* whenHidden (selenium_selector) .._returns a promise resolving to a web element_
+* whenMatches (selenium_selector, val) .._returns a promise resolving to a web element_
+* whenContains (selenium_selector, val) .._returns a promise resolving to a web element_
+* sendKeys (selenium_selector, value) .._returns a promise resolving to a web element_
+* hover (selenium_selector, delay) .._returns a promise resolving to a web element_
+* click (selenium_selector) .._returns a promise resolving to a web element_
+* getText (selenium_selector) .._returns a promise resolving to the text within the web element_
+* getVal (selenium_selector) .._returns a promise resolving to the value of the web element_
 
 ## Install
 
@@ -106,24 +125,6 @@ Tamarin is available as an npm module.
 
 ``` shell
 $ npm i tamarin -D
-```
-
-Tamarin can also be installed globally as a cli
-
-``` shell
-$ npm i tamarin -g
-```
-
-When installed globally, the following is available:
-``` shell
-  Usage: tamarin [options]
-
-  Options:
-
-    -h, --help     output usage information
-    -V, --version  output the version number
-    -b, --build    Build example features
-    -t, --test     Start test
 ```
 
 More to come!
