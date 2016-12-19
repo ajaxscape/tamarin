@@ -17,6 +17,8 @@ __Tamarin__ allows the tester/developer to concentrate on the functionality that
 
 I have often asked myself __As a user would I ever click on an invisible link, type in a disabled field or select an item from a dynamically loaded dropdown that hadn't loaded yet?__  My answer was __of course I wouldn't!__ so why do we have to write tests to make sure this doesn't happen?  What if all that extra code was abstracted away and all you had to do was implement a one-line "click" and everything else was taken care of?
 
+Tamarin can be used [with](https://github.com/ajaxscape/tamarin-example) or [without](https://github.com/ajaxscape/tamarin-vanilla-example) _cucumber.js_.  
+
 Note the following files taken from the example project: [tamarin-vanilla-example](https://github.com/ajaxscape/tamarin-vanilla-example).
 
 
