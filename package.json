@@ -6,7 +6,9 @@
   "bin": "./bin/tamarin.js",
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha",
-    "coverage": "node node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000"
+    "coverage": "node node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -62,6 +64,8 @@
     "cli-spinner": "^0.2.5",
     "commander": "^2.9.0",
     "lodash": "^4.17.2",
-    "selenium-webdriver": "^3.0.1"
-  }
+    "selenium-webdriver": "^3.0.1",
+    "snyk": "^1.192.4"
+  },
+  "snyk": true
 }
