@@ -1,3 +1,6 @@
+# **DEPRECATED** - no longer actively maintained
+
+---
 <h1 align="middle">Tamarin</h1>
 
 <img align="left" src="https://raw.githubusercontent.com/ajaxscape/tamarin/master/tamarin.png" width="256px">
